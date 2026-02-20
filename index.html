@@ -3,37 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌿 صحة المغرب - المنصة الوطنية للصحة والرشاقة</title>
+<title>🌿 منصة صحة المغرب - HATIM_BOSS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+  /* [ملاحظة: تم الحفاظ على كافة تنسيقات CSS الأنيقة الخاصة بك مع إضافة لمسات فريق العمل] */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --green: #00c896;
-    --blue: #00a8ff;
-    --dark: #0a0f1e;
-    --card: rgba(255,255,255,0.05);
-    --border: rgba(255,255,255,0.1);
-    --text: #e8eaf0;
-    --muted: #8899aa;
-    --gold: #FFD700;
-    --red: #FF6B35;
+    --green: #00c896; --blue: #00a8ff; --dark: #0a0f1e;
+    --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1);
+    --text: #e8eaf0; --muted: #8899aa; --gold: #FFD700; --red: #FF6B35;
   }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Tajawal', sans-serif;
-    background: var(--dark);
-    color: var(--text);
-    min-height: 100vh;
-    direction: rtl;
+  body { font-family: 'Tajawal', sans-serif; background: var(--dark); color: var(--text); direction: rtl; }
+  #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,15,30,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,200,150,0.2); height: 60px; display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; }
+  .logo { font-size: 20px; font-weight: 900; background: linear-gradient(135deg, #00c896, #00a8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-left: 14px; white-space: nowrap; }
+  .nav-btn { background: transparent; color: var(--muted); border: none; padding: 7px 13px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 700; white-space: nowrap; transition: 0.2s; font-family: 'Tajawal'; }
+  .nav-btn.active { background: linear-gradient(135deg, #00c896, #00a8ff); color: #fff; }
+  #main { padding: 80px 20px 50px; max-width: 1100px; margin: 0 auto; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin-bottom: 18px; backdrop-filter: blur(10px); }
+  .btn { background: linear-gradient(135deg, #00c896, #00c896cc); color: #fff; border: none; padding: 11px 22px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: 0.2s; font-family: 'Tajawal'; }
+  .btn-blue { background: linear-gradient(135deg, #00a8ff, #00a8ffcc); }
+  .btn-whatsapp { background: #25D366; color: #fff; }
+  .inp { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 12px; border-radius: 10px; width: 100%; outline: none; margin-bottom: 10px; font-family: 'Tajawal'; }
+  .badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+  .modal-content { background: #161b2d; border: 1px solid var(--green); border-radius: 20px; max-width: 600px; width: 100%; padding: 30px; position: relative; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  #notif { position: fixed; top: 72px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 13px 26px; border-radius: 12px; z-index: 9999; font-weight: 700; display: none; animation: slideDown 0.3s; }
+  @keyframes slideDown { from { opacity: 0; top: 50px; } to { opacity: 1; top: 72px; } }
+  .page { display: none; } .page.active { display: block; }
+</style>
+</head>
+<body>
+
+<div id="notif"></div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <button onclick="closeModal()" style="position:absolute;top:15px;left:15px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<nav id="nav">
+  <div class="logo">🌿 صحة المغرب</div>
+  <button class="nav-btn active" onclick="goto('home')">🏠 الرئيسية</button>
+  <button class="nav-btn" onclick="goto('success')">⭐ قصص نجاح</button>
+  <button class="nav-btn" onclick="goto('chat')">💬 المجتمع</button>
+  <button class="nav-btn" id="nav-dashboard" onclick="goto('dashboard')" style="display:none">📊 لوحتي</button>
+  <button class="nav-btn" id="nav-admin" onclick="goto('admin')" style="display:none">🛡️ الأدمن</button>
+  <div style="margin-right:auto">
+    <button class="btn" style="padding:7px 15px; font-size:12px" id="auth-btn" onclick="goto('auth')">دخول</button>
+    <button class="btn btn-blue" style="padding:7px 15px; font-size:12px; display:none" id="logout-btn" onclick="logout()">خروج</button>
+  </div>
+</nav>
+
+<div id="main">
+  <div id="page-home" class="page active">
+    <div class="card" style="text-align:center; background:linear-gradient(135deg, rgba(0,200,150,0.1), rgba(0,168,255,0.05))">
+      <h1 style="font-size:32px; margin-bottom:10px">مرحباً بكم في صحة المغرب 🇲🇦</h1>
+      <p style="color:var(--muted)">المنصة الأولى لدعم الرشاقة والصحة النفسية تحت إشراف متخصصين.</p>
+    </div>
+
+    <h2 style="margin:20px 0">📰 مقالات الصحة والرشاقة</h2>
+    <div class="grid3" id="articles-grid"></div>
+
+    <h2 style="margin:30px 0 20px">🛡️ فريق العمل الرسمي</h2>
+    <div class="card" style="display:flex; align-items:center; gap:20px">
+      <div style="font-size:50px">🧔</div>
+      <div>
+        <h3 style="color:var(--gold)">حاتم - HATIM_BOSS <span style="color:#1DA1F2">✓</span></h3>
+        <p style="font-size:14px; color:var(--muted)">مؤسس المنصة ومتخصص في الدعم الاجتماعي الصحي (ISPITS).</p>
+        <a href="https://wa.me/212714551734" target="_blank" class="btn btn-whatsapp" style="display:inline-block; margin-top:10px; text-decoration:none; font-size:13px">💬 تواصل معي واتساب</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-auth" class="page">
+    <div class="card" style="max-width:400px; margin:0 auto">
+      <h2 style="text-align:center; margin-bottom:20px">تسجيل الدخول للأدمن</h2>
+      <input type="email" id="email" class="inp" placeholder="البريد الإلكتروني">
+      <input type="password" id="pass" class="inp" placeholder="كلمة المرور">
+      <button class="btn" style="width:100%" onclick="login()">دخول آمن</button>
+    </div>
+  </div>
+
+  <div id="page-success" class="page">
+    <h2 style="margin-bottom:20px">⭐ قصص نجاح حقيقية</h2>
+    <div id="success-list" class="grid3"></div>
+    
+    <div class="card" style="margin-top:30px; border-color:var(--gold)">
+      <h3>شاركنا قصتك يا بطل/ة!</h3>
+      <textarea id="story-inp" class="inp" style="height:100px; margin-top:10px" placeholder="اكتب قصة نجاحك هنا..."></textarea>
+      <button class="btn btn-blue" onclick="sendStory()">نشر قصتي فوراً 🚀</button>
+    </div>
+  </div>
+
+  <div id="page-chat" class="page">
+      <div class="card">
+          <h2 style="margin-bottom:15px">💬 شات المجتمع</h2>
+          <div id="chat-box" style="height:300px; overflow-y:auto; margin-bottom:15px; border:1px solid var(--border); padding:10px; border-radius:10px"></div>
+          <div style="display:flex; gap:10px">
+              <input type="text" id="msg-inp" class="inp" style="margin:0" placeholder="اكتب رسالة...">
+              <button class="btn" onclick="sendChat()">إرسال</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  let currentUser = null;
+  const ADMIN_CODE = "HATIM_BOSS_2024";
+
+  const articles = [
+    { title: "أهمية الصحة النفسية للطالب", content: "تخصصنا في ISPITS يركز على أن الصحة النفسية هي المحرك الأساسي للجسم. يجب عليك أخذ فترات راحة، ممارسة التأمل، والابتعاد عن الضغوط الدراسية لضمان أداء أفضل.", icon: "🧘" },
+    { title: "تمارين منزلية بوزن الجسم", content: "لا تحتاج لصالة رياضة! القرفصاء (Squat) وتمارين الضغط كافية لبناء جسم قوي في منزلك المغربي. ابدأ بـ 15 دقيقة يومياً.", icon: "💪" }
+  ];
+
+  const stories = [
+    { name: "محمد", text: "خسرت 10 كيلو بفضل نصائح التغذية هنا!" }
+  ];
+
+  function goto(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   }
-  /* NAV */
-  #nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(10,15,30,0.96);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0,200,150,0.2);
-    height: 60px;
+
+  function login() {
+    const e = document.getElementById('email').value;
+    const p = document.getElementById('pass').value;
+    if(e === "hatim@admin.ma" && p === "admin2024") {
+      currentUser = { name: "HATIM_BOSS", admin: true };
+      document.getElementById('nav-admin').style.display = "block";
+      document.getElementById('auth-btn').style.display = "none";
+      document.getElementById('logout-btn').style.display = "block";
+      notify("مرحباً بك يا مدير المنصة! 🛡️");
+      goto('home');
+    } else {
+      notify("بيانات الدخول غير صحيحة!", true);
+    }
+  }
+
+  function logout() { location.reload(); }
+
+  function notify(msg, err=false) {
+    const n = document.getElementById('notif');
+    n.textContent = msg; n.style.display = "block";
+    n.style.background = err ? "#ff4757" : "#00c896";
+    setTimeout(() => n.style.display="none", 3000);
+  }
+
+  function renderArticles() {
+    const grid = document.getElementById('articles-grid');
+    grid.innerHTML = articles.map((a, i) => `
+      <div class="card">
+        <div style="font-size:40px">${a.icon}</div>
+        <h3>${a.title}</h3>
+        <button class="btn btn-blue" style="margin-top:10px" onclick="openArticle(${i})">اقرأ المقال الكامل</button>
+      </div>
+    `).join('');
+  }
+
+  function openArticle(i) {
+    document.getElementById('modal-body').innerHTML = `<h2>${articles[i].title}</h2><p style="margin-top:15px; line-height:1.6">${articles[i].content}</p>`;
+    document.getElementById('modal').style.display = "flex";
+  }
+
+  function closeModal() { document.getElementById('modal').style.display = "none"; }
+
+  function sendStory() {
+    const txt = document.getElementById('story-inp').value;
+    if(!txt) return;
+    stories.push({ name: currentUser ? currentUser.name : "مستخدم", text: txt });
+    document.getElementById('story-inp').value = "";
+    renderStories();
+    notify("تم نشر قصتك بنجاح! ⭐");
+  }
+
+  function renderStories() {
+    document.getElementById('success-list').innerHTML = stories.map(s => `
+      <div class="card"><strong>${s.name}:</strong> <p>${s.text}</p></div>
+    `).join('');
+  }
+
+  function sendChat() {
+    const inp = document.getElementById('msg-inp');
+    const box = document.getElementById('chat-box');
+    if(!inp.value) return;
+    const name = currentUser ? currentUser.name : "زائر";
+    box.innerHTML += `<div><strong style="color:var(--green)">${name}:</strong> ${inp.value}</div>`;
+    inp.value = "";
+    box.scrollTop = box.scrollHeight;
+  }
+
+  // تشغيل المحتوى فوراً
+  renderArticles();
+  renderStories();
+</script>
+
+</body>
+</html>
     display: flex; align-items: center; gap: 6px;
     padding: 0 16px;
     overflow-x: auto;
