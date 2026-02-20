@@ -3,204 +3,1166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌿 منصة صحة المغرب - HATIM_BOSS</title>
+<title>🌿 صحة المغرب - المنصة الوطنية للصحة والرشاقة</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  /* [ملاحظة: تم الحفاظ على كافة تنسيقات CSS الأنيقة الخاصة بك مع إضافة لمسات فريق العمل] */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --green: #00c896; --blue: #00a8ff; --dark: #0a0f1e;
-    --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1);
-    --text: #e8eaf0; --muted: #8899aa; --gold: #FFD700; --red: #FF6B35;
+    --green: #00c896;
+    --blue: #00a8ff;
+    --dark: #0a0f1e;
+    --card: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.1);
+    --text: #e8eaf0;
+    --muted: #8899aa;
+    --gold: #FFD700;
+    --red: #FF6B35;
   }
-  body { font-family: 'Tajawal', sans-serif; background: var(--dark); color: var(--text); direction: rtl; }
-  #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,15,30,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,200,150,0.2); height: 60px; display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; }
-  .logo { font-size: 20px; font-weight: 900; background: linear-gradient(135deg, #00c896, #00a8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-left: 14px; white-space: nowrap; }
-  .nav-btn { background: transparent; color: var(--muted); border: none; padding: 7px 13px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 700; white-space: nowrap; transition: 0.2s; font-family: 'Tajawal'; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    direction: rtl;
+  }
+  /* NAV */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,15,30,0.96);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,200,150,0.2);
+    height: 60px;
+    display: flex; align-items: center; gap: 6px;
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+  #nav::-webkit-scrollbar { height: 3px; }
+  #nav::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+  .logo {
+    font-size: 20px; font-weight: 900; white-space: nowrap; flex-shrink: 0;
+    background: linear-gradient(135deg, #00c896, #00a8ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-left: 14px;
+  }
+  .nav-btn {
+    background: transparent; color: var(--muted); border: none;
+    padding: 7px 13px; border-radius: 20px; cursor: pointer;
+    font-size: 13px; font-weight: 700; white-space: nowrap; flex-shrink: 0;
+    font-family: 'Tajawal', sans-serif; transition: all 0.2s;
+  }
+  .nav-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
   .nav-btn.active { background: linear-gradient(135deg, #00c896, #00a8ff); color: #fff; }
-  #main { padding: 80px 20px 50px; max-width: 1100px; margin: 0 auto; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin-bottom: 18px; backdrop-filter: blur(10px); }
-  .btn { background: linear-gradient(135deg, #00c896, #00c896cc); color: #fff; border: none; padding: 11px 22px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: 0.2s; font-family: 'Tajawal'; }
+  .nav-right { margin-right: auto; flex-shrink: 0; }
+  /* MAIN */
+  #main {
+    padding: 74px 20px 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+  }
+  /* BUTTONS */
+  .btn {
+    background: linear-gradient(135deg, #00c896, #00c896cc);
+    color: #fff; border: none; padding: 11px 22px;
+    border-radius: 12px; cursor: pointer;
+    font-size: 15px; font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: 0.92; }
   .btn-blue { background: linear-gradient(135deg, #00a8ff, #00a8ffcc); }
-  .btn-whatsapp { background: #25D366; color: #fff; }
-  .inp { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 12px; border-radius: 10px; width: 100%; outline: none; margin-bottom: 10px; font-family: 'Tajawal'; }
-  .badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
-  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
-  .modal-content { background: #161b2d; border: 1px solid var(--green); border-radius: 20px; max-width: 600px; width: 100%; padding: 30px; position: relative; }
+  .btn-gold { background: linear-gradient(135deg, #FFD700, #f0c000); color: #000; }
+  .btn-red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+  .btn-dark { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); }
+  .btn-sm { padding: 7px 14px; font-size: 13px; }
+  .btn-full { width: 100%; }
+  /* INPUTS */
+  .inp {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text); padding: 12px 16px;
+    border-radius: 10px; font-size: 15px;
+    font-family: 'Tajawal', sans-serif;
+    width: 100%; outline: none;
+    transition: border-color 0.2s;
+  }
+  .inp:focus { border-color: var(--green); }
+  .inp::placeholder { color: var(--muted); }
+  /* BADGE */
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+  }
+  /* SECTION TITLE */
+  .sec-title {
+    font-size: 26px; font-weight: 900; margin-bottom: 8px;
+    background: linear-gradient(135deg, #00c896, #00a8ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  /* GRIDS */
   .grid3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  #notif { position: fixed; top: 72px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 13px 26px; border-radius: 12px; z-index: 9999; font-weight: 700; display: none; animation: slideDown 0.3s; }
-  @keyframes slideDown { from { opacity: 0; top: 50px; } to { opacity: 1; top: 72px; } }
-  .page { display: none; } .page.active { display: block; }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, rgba(0,200,150,0.13), rgba(0,168,255,0.09));
+    border: 1px solid rgba(0,200,150,0.28);
+    border-radius: 20px; padding: 38px; text-align: center; margin-bottom: 28px;
+  }
+  /* NOTIFICATION */
+  #notif {
+    position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: #fff; padding: 13px 26px;
+    border-radius: 12px; z-index: 9999; font-weight: 700; font-size: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    display: none; white-space: nowrap;
+    animation: slideDown 0.3s ease;
+  }
+  @keyframes slideDown { from { top: 50px; opacity: 0; } to { top: 72px; opacity: 1; } }
+  #notif.err { background: #e74c3c; }
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+  /* PROGRESS BAR */
+  .progress-track { height: 8px; background: #333; border-radius: 4px; overflow: hidden; }
+  .progress-fill {
+    height: 100%; background: linear-gradient(135deg, #00a8ff, #00c896);
+    border-radius: 4px; transition: width 0.4s;
+  }
+  /* CHAT */
+  #chat-box {
+    height: 420px; overflow-y: auto; display: flex; flex-direction: column;
+    gap: 12px; margin-bottom: 14px; padding-left: 4px;
+  }
+  #chat-box::-webkit-scrollbar { width: 4px; }
+  #chat-box::-webkit-scrollbar-thumb { background: var(--green); border-radius: 4px; }
+  .chat-msg { display: flex; gap: 10px; align-items: flex-start; }
+  .chat-avatar {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; background: linear-gradient(135deg, #00c896, #00a8ff);
+  }
+  .chat-avatar.admin { background: linear-gradient(135deg, #FF6B35, #FFD700); }
+  .chat-bubble {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0 12px 12px 12px; padding: 10px 14px;
+    font-size: 14px; line-height: 1.5;
+  }
+  .chat-bubble.admin-bubble { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.3); }
+  .chat-meta { font-size: 12px; color: var(--muted); margin-bottom: 3px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .chat-name { font-weight: 800; font-size: 14px; }
+  .chat-name.green { color: var(--green); }
+  .chat-name.gold { color: var(--gold); }
+  /* CHALLENGE GRID */
+  .challenge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+  .day-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px; text-align: center;
+    transition: transform 0.2s;
+  }
+  .day-card:hover { transform: translateY(-2px); }
+  .day-card.done { border-color: var(--green); background: rgba(0,200,150,0.1); }
+  /* STAT CARD */
+  .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-align: center; }
+  /* WEEKLY GRID */
+  .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  /* FLEX UTILS */
+  .flex { display: flex; }
+  .flex-gap { display: flex; gap: 10px; }
+  .flex-center { display: flex; align-items: center; justify-content: center; }
+  .flex-wrap { flex-wrap: wrap; }
+  .flex-col { flex-direction: column; }
+  .items-center { align-items: center; }
+  .gap-8 { gap: 8px; }
+  .gap-12 { gap: 12px; }
+  .gap-16 { gap: 16px; }
+  .mt-8 { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-20 { margin-top: 20px; }
+  .mt-28 { margin-top: 28px; }
+  .mb-6 { margin-bottom: 6px; }
+  .mb-12 { margin-bottom: 12px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-20 { margin-bottom: 20px; }
+  .text-muted { color: var(--muted); }
+  .text-green { color: var(--green); }
+  .text-gold { color: var(--gold); }
+  .text-blue { color: #1DA1F2; }
+  .text-center { text-align: center; }
+  .fw-900 { font-weight: 900; }
+  .fw-800 { font-weight: 800; }
+  .fw-700 { font-weight: 700; }
+  .fs-12 { font-size: 12px; }
+  .fs-13 { font-size: 13px; }
+  .fs-14 { font-size: 14px; }
+  .fs-16 { font-size: 16px; }
+  .fs-18 { font-size: 18px; }
+  .fs-20 { font-size: 20px; }
+  .fs-28 { font-size: 28px; }
+  .fs-32 { font-size: 32px; }
+  .fs-36 { font-size: 36px; }
+  .fs-42 { font-size: 42px; }
+  .fs-48 { font-size: 48px; }
+  .fs-56 { font-size: 56px; }
+  /* ADMIN */
+  .admin-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+  .admin-row {
+    display: flex; gap: 12px; align-items: center; padding: 13px;
+    margin-bottom: 8px; background: rgba(255,255,255,0.04);
+    border-radius: 10px; flex-wrap: wrap;
+  }
+  /* Verified blue check */
+  .vcheck { color: #1DA1F2; font-size: 16px; }
+  /* Footer */
+  #footer { text-align: center; padding: 20px; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+  /* Responsive */
+  @media (max-width: 700px) {
+    .grid4 { grid-template-columns: repeat(2, 1fr); }
+    .week-grid { grid-template-columns: repeat(4, 1fr); }
+    .hero { padding: 24px 16px; }
+    #main { padding: 70px 12px 40px; }
+  }
+  @media (max-width: 500px) {
+    .grid3, .grid2 { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
+<!-- NOTIFICATION -->
 <div id="notif"></div>
 
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <button onclick="closeModal()" style="position:absolute;top:15px;left:15px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer">×</button>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
+<!-- NAVBAR -->
 <nav id="nav">
   <div class="logo">🌿 صحة المغرب</div>
   <button class="nav-btn active" onclick="goto('home')">🏠 الرئيسية</button>
+  <button class="nav-btn" onclick="goto('exercises')">💪 التمارين</button>
+  <button class="nav-btn" onclick="goto('nutrition')">🥗 التغذية</button>
+  <button class="nav-btn" onclick="goto('challenge')">⚡ تحدي 30 يوم</button>
+  <button class="nav-btn" onclick="goto('mental')">🧘 الصحة النفسية</button>
   <button class="nav-btn" onclick="goto('success')">⭐ قصص نجاح</button>
   <button class="nav-btn" onclick="goto('chat')">💬 المجتمع</button>
   <button class="nav-btn" id="nav-dashboard" onclick="goto('dashboard')" style="display:none">📊 لوحتي</button>
   <button class="nav-btn" id="nav-admin" onclick="goto('admin')" style="display:none">🛡️ الأدمن</button>
-  <div style="margin-right:auto">
-    <button class="btn" style="padding:7px 15px; font-size:12px" id="auth-btn" onclick="goto('auth')">دخول</button>
-    <button class="btn btn-blue" style="padding:7px 15px; font-size:12px; display:none" id="logout-btn" onclick="logout()">خروج</button>
+  <div class="nav-right">
+    <button class="btn btn-sm" id="nav-auth-btn" onclick="goto('auth')">دخول / تسجيل</button>
+    <button class="btn btn-sm btn-dark" id="nav-logout-btn" onclick="logout()" style="display:none">خروج 👤</button>
   </div>
 </nav>
 
+<!-- MAIN -->
 <div id="main">
+
+  <!-- HOME PAGE -->
   <div id="page-home" class="page active">
-    <div class="card" style="text-align:center; background:linear-gradient(135deg, rgba(0,200,150,0.1), rgba(0,168,255,0.05))">
-      <h1 style="font-size:32px; margin-bottom:10px">مرحباً بكم في صحة المغرب 🇲🇦</h1>
-      <p style="color:var(--muted)">المنصة الأولى لدعم الرشاقة والصحة النفسية تحت إشراف متخصصين.</p>
-    </div>
-
-    <h2 style="margin:20px 0">📰 مقالات الصحة والرشاقة</h2>
-    <div class="grid3" id="articles-grid"></div>
-
-    <h2 style="margin:30px 0 20px">🛡️ فريق العمل الرسمي</h2>
-    <div class="card" style="display:flex; align-items:center; gap:20px">
-      <div style="font-size:50px">🧔</div>
-      <div>
-        <h3 style="color:var(--gold)">حاتم - HATIM_BOSS <span style="color:#1DA1F2">✓</span></h3>
-        <p style="font-size:14px; color:var(--muted)">مؤسس المنصة ومتخصص في الدعم الاجتماعي الصحي (ISPITS).</p>
-        <a href="https://wa.me/212714551734" target="_blank" class="btn btn-whatsapp" style="display:inline-block; margin-top:10px; text-decoration:none; font-size:13px">💬 تواصل معي واتساب</a>
+    <div class="hero">
+      <div class="fs-56">🌿</div>
+      <h1 class="fs-42 fw-900" style="background:linear-gradient(135deg,#00c896,#00a8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:8px 0">صحة المغرب</h1>
+      <p class="text-muted fs-18" style="margin:10px 0 22px">المنصة الوطنية الشاملة للصحة والرشاقة المغربية</p>
+      <div class="flex-gap flex-wrap flex-center">
+        <button class="btn" onclick="goto('challenge')">⚡ ابدأ تحدي 30 يوم</button>
+        <button class="btn btn-blue" onclick="requireLogin('dashboard')">📊 لوحتي الشخصية</button>
       </div>
     </div>
+
+    <!-- Stats -->
+    <div class="grid4 mb-20">
+      <div class="stat-card"><div class="fs-32">👥</div><div class="fs-28 fw-900 text-green">12,450</div><div class="text-muted fs-13">مستخدم نشط</div></div>
+      <div class="stat-card"><div class="fs-32">⚖️</div><div class="fs-28 fw-900 text-green">4.2 طن</div><div class="text-muted fs-13">وزن تم تخسيره</div></div>
+      <div class="stat-card"><div class="fs-32">💪</div><div class="fs-28 fw-900 text-green">89,000</div><div class="text-muted fs-13">تمرين مكتمل</div></div>
+      <div class="stat-card"><div class="fs-32">🏆</div><div class="fs-28 fw-900 text-green">30</div><div class="text-muted fs-13">تحدي صحي</div></div>
+    </div>
+
+    <!-- Articles -->
+    <h2 class="sec-title">📰 أحدث المقالات</h2>
+    <div class="grid3 mb-20" id="articles-grid"></div>
+
+    <!-- Badges -->
+    <h2 class="sec-title mt-28">🏅 شارات المنصة</h2>
+    <div class="flex flex-wrap gap-12 mb-20" id="badges-showcase"></div>
+
+    <!-- BMI -->
+    <h2 class="sec-title mt-28">⚖️ حاسبة مؤشر كتلة الجسم BMI</h2>
+    <div class="card">
+      <div class="flex-gap" style="align-items:flex-end">
+        <div style="flex:1">
+          <label class="text-muted fs-13 mb-6" style="display:block">الوزن (كغ)</label>
+          <input class="inp" id="bmi-w" type="number" placeholder="70">
+        </div>
+        <div style="flex:1">
+          <label class="text-muted fs-13 mb-6" style="display:block">الطول (سم)</label>
+          <input class="inp" id="bmi-h" type="number" placeholder="175">
+        </div>
+        <button class="btn" onclick="calcBMI()">احسب</button>
+      </div>
+      <div id="bmi-result" style="display:none;margin-top:16px;text-align:center;padding:16px;background:rgba(0,200,150,0.1);border-radius:12px"></div>
+    </div>
+
+    <!-- Quick Tips -->
+    <h2 class="sec-title mt-28">💡 نصيحة اليوم</h2>
+    <div class="card" id="tip-of-day" style="border-color:rgba(0,200,150,0.3)"></div>
   </div>
 
+  <!-- ARTICLE PAGE -->
+  <div id="page-article" class="page">
+    <button class="btn btn-dark mb-16" onclick="goto('home')">← رجوع</button>
+    <div class="card" id="article-content"></div>
+  </div>
+
+  <!-- AUTH PAGE -->
   <div id="page-auth" class="page">
-    <div class="card" style="max-width:400px; margin:0 auto">
-      <h2 style="text-align:center; margin-bottom:20px">تسجيل الدخول للأدمن</h2>
-      <input type="email" id="email" class="inp" placeholder="البريد الإلكتروني">
-      <input type="password" id="pass" class="inp" placeholder="كلمة المرور">
-      <button class="btn" style="width:100%" onclick="login()">دخول آمن</button>
-    </div>
-  </div>
-
-  <div id="page-success" class="page">
-    <h2 style="margin-bottom:20px">⭐ قصص نجاح حقيقية</h2>
-    <div id="success-list" class="grid3"></div>
-    
-    <div class="card" style="margin-top:30px; border-color:var(--gold)">
-      <h3>شاركنا قصتك يا بطل/ة!</h3>
-      <textarea id="story-inp" class="inp" style="height:100px; margin-top:10px" placeholder="اكتب قصة نجاحك هنا..."></textarea>
-      <button class="btn btn-blue" onclick="sendStory()">نشر قصتي فوراً 🚀</button>
-    </div>
-  </div>
-
-  <div id="page-chat" class="page">
+    <div style="max-width:440px;margin:0 auto">
       <div class="card">
-          <h2 style="margin-bottom:15px">💬 شات المجتمع</h2>
-          <div id="chat-box" style="height:300px; overflow-y:auto; margin-bottom:15px; border:1px solid var(--border); padding:10px; border-radius:10px"></div>
-          <div style="display:flex; gap:10px">
-              <input type="text" id="msg-inp" class="inp" style="margin:0" placeholder="اكتب رسالة...">
-              <button class="btn" onclick="sendChat()">إرسال</button>
+        <div class="text-center mb-16">
+          <div class="fs-48">🌿</div>
+          <h2 class="fw-900 fs-20 mt-8">صحة المغرب</h2>
+        </div>
+        <div class="flex-gap mb-20">
+          <button class="btn btn-full" id="tab-login" onclick="switchAuth('login')">دخول</button>
+          <button class="btn btn-dark btn-full" id="tab-reg" onclick="switchAuth('reg')">تسجيل</button>
+        </div>
+        <!-- Login -->
+        <div id="auth-login">
+          <div class="flex flex-col gap-12">
+            <input class="inp" id="l-email" placeholder="البريد الإلكتروني" type="email">
+            <input class="inp" id="l-pass" placeholder="كلمة المرور" type="password">
+            <button class="btn btn-full" onclick="doLogin()">دخول</button>
+            <div class="text-muted fs-13 text-center">تجربة سريعة: hatim@admin.ma / admin2024 (أدمن)</div>
           </div>
+        </div>
+        <!-- Register -->
+        <div id="auth-reg" style="display:none">
+          <div class="flex flex-col gap-12">
+            <input class="inp" id="r-name" placeholder="الاسم الكامل">
+            <input class="inp" id="r-email" placeholder="البريد الإلكتروني" type="email">
+            <input class="inp" id="r-pass" placeholder="كلمة المرور" type="password">
+            <input class="inp" id="r-city" placeholder="مدينتك (الرباط، كازا، مراكش...)">
+            <button class="btn btn-full" onclick="doRegister()">إنشاء حساب مجاني 🎉</button>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
+
+  <!-- DASHBOARD PAGE -->
+  <div id="page-dashboard" class="page">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1;min-width:270px">
+        <div class="hero" style="margin-bottom:16px">
+          <div class="fs-56">👤</div>
+          <div class="flex flex-wrap flex-center gap-8 mt-8">
+            <h2 class="fw-900 fs-20" id="dash-name">-</h2>
+            <span id="dash-vcheck" class="vcheck" style="display:none">✓</span>
+            <span id="dash-admin-badge" style="display:none"></span>
+          </div>
+          <div class="text-muted fs-13 mt-8" id="dash-info">-</div>
+          <div class="fs-28 fw-900 text-gold mt-12" id="dash-points">0 نقطة</div>
+          <div class="text-muted fs-13" id="dash-challenge-day">اليوم 0/30 من التحدي</div>
+        </div>
+        <div class="card">
+          <h3 class="fw-800 mb-12">🏅 شاراتي</h3>
+          <div class="flex flex-wrap gap-8" id="dash-badges"></div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:270px">
+        <div class="card">
+          <h3 class="fw-800 mb-12">📊 تتبع اليوم</h3>
+          <div class="mb-16">
+            <div class="flex-gap items-center mb-8">
+              <span>💧 الماء (<span id="water-count">0</span>/8 أكواب)</span>
+              <button class="btn btn-sm" onclick="addWater()">+</button>
+            </div>
+            <div class="progress-track"><div class="progress-fill" id="water-bar" style="width:0%"></div></div>
+          </div>
+          <div class="mb-16">
+            <label class="text-muted fs-13 mb-6" style="display:block">🚶 الخطوات اليومية</label>
+            <input class="inp" id="steps-inp" type="number" placeholder="0" oninput="updateSteps(this.value)">
+            <div class="text-muted fs-12 mt-8" id="steps-pct">الهدف: 10,000 خطوة (0%)</div>
+          </div>
+          <button class="btn btn-full" onclick="saveDay()">💾 حفظ يوم اليوم</button>
+        </div>
+        <div class="card">
+          <h3 class="fw-800 mb-12">⚡ وصول سريع</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <button class="btn btn-dark" onclick="goto('exercises')">💪 التمارين</button>
+            <button class="btn btn-dark" onclick="goto('nutrition')">🥗 التغذية</button>
+            <button class="btn btn-dark" onclick="goto('challenge')">⚡ التحدي</button>
+            <button class="btn btn-dark" onclick="goto('chat')">💬 الشات</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISES PAGE -->
+  <div id="page-exercises" class="page">
+    <h2 class="sec-title">💪 مكتبة التمارين المنزلية</h2>
+    <p class="text-muted mb-20">تمارين مصممة خصيصاً للبيت المغربي – بدون أي معدات</p>
+    <div class="grid3 mb-20" id="exercises-grid"></div>
+    <div class="card">
+      <h3 class="fw-800 mb-16">📅 البرنامج الأسبوعي</h3>
+      <div class="week-grid" id="week-grid"></div>
+    </div>
+  </div>
+
+  <!-- NUTRITION PAGE -->
+  <div id="page-nutrition" class="page">
+    <h2 class="sec-title">🥗 التغذية المغربية الصحية</h2>
+    <p class="text-muted mb-20">وجبات مستوحاة من المطبخ المغربي الأصيل – صحية ولذيذة</p>
+    <div class="grid3 mb-20" id="meals-grid"></div>
+    <div class="card">
+      <h3 class="fw-800 mb-16">💡 نصائح تغذوية مغربية</h3>
+      <div class="grid3" id="nutrition-tips"></div>
+    </div>
+  </div>
+
+  <!-- CHALLENGE PAGE -->
+  <div id="page-challenge" class="page">
+    <h2 class="sec-title">⚡ تحدي الـ 30 يوماً</h2>
+    <div class="hero mb-20">
+      <div class="fs-48">🏆</div>
+      <p class="fs-16" style="color:#ccd;margin:8px 0">30 يوم تغير حياتك للأبد. انضم لـ 12,450 مغربي يتحدون اليوم!</p>
+      <div id="challenge-login-btn" style="display:none">
+        <button class="btn mt-12" onclick="goto('auth')">سجل للانضمام</button>
+      </div>
+    </div>
+    <div class="challenge-grid" id="challenge-grid"></div>
+  </div>
+
+  <!-- MENTAL PAGE -->
+  <div id="page-mental" class="page">
+    <h2 class="sec-title">🧘 الصحة النفسية والراحة</h2>
+    <div class="hero mb-20">
+      <p class="fs-16" style="color:#ccd">الصحة النفسية لا تقل أهمية عن الصحة الجسدية. اهتم بعقلك كما تهتم بجسمك.</p>
+    </div>
+    <div class="grid3 mb-20" id="mental-grid"></div>
+    <div class="card">
+      <h3 class="fw-800 mb-16">🌬️ تمرين التنفس اليومي 4-4-4</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center">
+        <div style="padding:20px;background:rgba(0,168,255,0.15);border:1px solid #00a8ff;border-radius:12px"><div class="fs-32">⏱️</div><div class="fw-900 fs-20" style="color:#00a8ff">4 ثواني</div><div class="fw-700">شهيق</div></div>
+        <div style="padding:20px;background:rgba(255,215,0,0.15);border:1px solid #FFD700;border-radius:12px"><div class="fs-32">⏱️</div><div class="fw-900 fs-20 text-gold">4 ثواني</div><div class="fw-700">حبس النفس</div></div>
+        <div style="padding:20px;background:rgba(0,200,150,0.15);border:1px solid #00c896;border-radius:12px"><div class="fs-32">⏱️</div><div class="fw-900 fs-20 text-green">4 ثواني</div><div class="fw-700">زفير</div></div>
+      </div>
+      <button class="btn btn-full mt-16" style="background:linear-gradient(135deg,#9B59B6,#8e44ad)" onclick="notify('تمرين التنفس مكتمل! +5 نقاط 🧘')">▶️ ابدأ تمرين التنفس</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS PAGE -->
+  <div id="page-success" class="page">
+    <h2 class="sec-title">⭐ قصص نجاح مغاربة</h2>
+    <div class="grid2 mb-20" id="success-grid"></div>
+    <div class="hero text-center">
+      <h3 class="fw-900 fs-20">أنت القادم/ة!</h3>
+      <p class="text-muted mt-8">شارك قصتك مع مجتمع صحة المغرب وألهم الآخرين</p>
+      <button class="btn mt-16" onclick="notify('تم إرسال قصتك للمراجعة! شكراً 🎉')">أرسل قصتي</button>
+    </div>
+  </div>
+
+  <!-- CHAT PAGE -->
+  <div id="page-chat" class="page">
+    <h2 class="sec-title">💬 مجتمع صحة المغرب</h2>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:16px">
+      <div class="card">
+        <div id="chat-box"></div>
+        <div class="flex-gap">
+          <input class="inp" id="chat-inp" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="btn" onclick="sendChat()">إرسال</button>
+        </div>
+      </div>
+      <div>
+        <div class="card mb-12">
+          <h4 class="fw-800 mb-12">👥 المتصلون الآن</h4>
+          <div id="online-users"></div>
+        </div>
+        <div class="card">
+          <h4 class="fw-800 mb-12">📢 قواعد الغرفة</h4>
+          <ul class="text-muted fs-14" style="line-height:2.2;padding-right:16px">
+            <li>احترم الجميع</li>
+            <li>لا إعلانات تجارية</li>
+            <li>نصائح صحية فقط</li>
+            <li>حافظ على الخصوصية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PAGE -->
+  <div id="page-admin" class="page">
+    <h2 class="sec-title">🛡️ لوحة تحكم HATIM_BOSS</h2>
+
+    <!-- Super Code -->
+    <div class="card mb-20" style="border-color:#FFD700;background:rgba(255,215,0,0.05)">
+      <h3 style="color:#FFD700;font-weight:900;margin-bottom:12px">⚡ كود الأدمن الخارق</h3>
+      <div class="flex-gap">
+        <input class="inp" id="admin-code-inp" placeholder="أدخل الكود السري..." type="password" style="font-family:monospace;letter-spacing:2px;flex:1">
+        <button class="btn btn-gold" onclick="useAdminCode()">🚀 فعّل الآن</button>
+      </div>
+      <div class="text-muted fs-13 mt-8">هذا الكود يمنح جميع الشارات + توثيق فوري للحساب</div>
+    </div>
+
+    <!-- Admin Tabs -->
+    <div class="admin-tabs">
+      <button class="btn" id="atab-users" onclick="switchAdminTab('users')">👥 المستخدمين</button>
+      <button class="btn btn-dark" id="atab-chat" onclick="switchAdminTab('chat')">💬 إدارة الشات</button>
+      <button class="btn btn-dark" id="atab-stats" onclick="switchAdminTab('stats')">📊 الإحصائيات</button>
+    </div>
+
+    <div id="admin-users-panel">
+      <div class="card">
+        <h3 class="fw-800 mb-16">👥 إدارة المستخدمين</h3>
+        <div id="admin-users-list"></div>
+      </div>
+    </div>
+
+    <div id="admin-chat-panel" style="display:none">
+      <div class="card">
+        <h3 class="fw-800 mb-16">💬 إدارة رسائل الشات</h3>
+        <div class="flex-gap mb-16">
+          <input class="inp" id="admin-msg-inp" placeholder="رسالة رسمية من الإدارة للمجتمع..." style="flex:1">
+          <button class="btn" onclick="sendAdminMsg()">📢 إرسال</button>
+        </div>
+        <div id="admin-chat-list"></div>
+      </div>
+    </div>
+
+    <div id="admin-stats-panel" style="display:none">
+      <div class="grid3" id="admin-stats-grid"></div>
+    </div>
+  </div>
+
 </div>
 
+<!-- FOOTER -->
+<div id="footer">🌿 صحة المغرب - المنصة الوطنية الشاملة للصحة والرشاقة • 2025 ©<br><span style="font-size:12px">مصمم بـ ❤️ من أجل كل مغربي وكل مغربية</span></div>
+
 <script>
-  let currentUser = null;
-  const ADMIN_CODE = "HATIM_BOSS_2024";
+// ===================== DATA =====================
+const ADMIN_CODE = "HATIM_BOSS_2024";
 
-  const articles = [
-    { title: "أهمية الصحة النفسية للطالب", content: "تخصصنا في ISPITS يركز على أن الصحة النفسية هي المحرك الأساسي للجسم. يجب عليك أخذ فترات راحة، ممارسة التأمل، والابتعاد عن الضغوط الدراسية لضمان أداء أفضل.", icon: "🧘" },
-    { title: "تمارين منزلية بوزن الجسم", content: "لا تحتاج لصالة رياضة! القرفصاء (Squat) وتمارين الضغط كافية لبناء جسم قوي في منزلك المغربي. ابدأ بـ 15 دقيقة يومياً.", icon: "💪" }
-  ];
+const BADGES_DATA = [
+  { id:"daily",   icon:"🔥", label:"الملتزم اليومي",  color:"#FF6B35", desc:"تسجيل دخول 7 أيام متتالية" },
+  { id:"fitness", icon:"🏆", label:"بطل الرشاقة",     color:"#FFD700", desc:"إتمام 30 تمريناً" },
+  { id:"nutrition",icon:"🥗",label:"خبير التغذية",    color:"#2ECC71", desc:"تسجيل 14 وجبة صحية" },
+  { id:"challenge",icon:"⚡",label:"محارب التحدي",    color:"#9B59B6", desc:"إتمام تحدي 30 يوم" },
+  { id:"social",  icon:"🤝", label:"روح الفريق",      color:"#3498DB", desc:"إرسال 50 رسالة في الشات" },
+  { id:"verified",icon:"✓", label:"حساب موثق",       color:"#1DA1F2", desc:"موثق من الإدارة" },
+  { id:"mental",  icon:"🧠", label:"التوازن النفسي",  color:"#E91E63", desc:"قراءة 10 مقالات صحة نفسية" },
+  { id:"streak30",icon:"💎", label:"الماسة الذهبية", color:"#00BCD4", desc:"30 يوم التزام متواصل" },
+];
 
-  const stories = [
-    { name: "محمد", text: "خسرت 10 كيلو بفضل نصائح التغذية هنا!" }
-  ];
+const ARTICLES_DATA = [
+  { id:1, cat:"تغذية",      title:"الكسكس الصحي: كيف تحوّله لوجبة مثالية",       img:"🍲", date:"15 فبراير 2025", reads:2340, catColor:"#2ECC71", content:"اكتشف طريقة تحضير الكسكس المغربي بطريقة صحية مع خضروات موسمية وبروتين عالي الجودة. الكسكس المغربي من أكثر الأطباق تنوعاً وصحةً في العالم. يحتوي على الشعير الكامل الغني بالألياف التي تساعد على الهضم وتمنح الشعور بالشبع لفترة أطول. يمكن إضافة الحمص والخضروات المتنوعة لرفع قيمته الغذائية." },
+  { id:2, cat:"تمارين",     title:"10 تمارين كارديو لا تحتاج أي معدات",           img:"🏃", date:"12 فبراير 2025", reads:1890, catColor:"#FF6B35", content:"مجموعة تمارين كارديو يمكنك ممارستها في بيتك المغربي بدون أي معدات. من القرفصاء إلى الجامبينغ جاك، هذه التمارين تحرق السعرات بفعالية عالية وتحسن اللياقة القلبية. خصصها لـ 20 دقيقة صباحاً وستلاحظ الفرق خلال أسبوع واحد فقط." },
+  { id:3, cat:"صحة نفسية",  title:"تجنب ضغوط الدراسة بـ 5 خطوات علمية",          img:"🧘", date:"10 فبراير 2025", reads:3120, catColor:"#9B59B6", content:"دراسة مع الالتزام الصحي صعبة لكن ممكنة. تعلم كيف توازن بين دراستك وصحتك النفسية والجسدية. النوم الجيد، التغذية السليمة، وفترات الراحة المنتظمة تحسن من قدرتك على التركيز وتخفف من القلق." },
+  { id:4, cat:"قصص نجاح",   title:"يوسف من كازا: خسرت 30 كيلو في 6 أشهر",       img:"⭐", date:"8 فبراير 2025",  reads:5670, catColor:"#FFD700", content:"قصة ملهمة من الدار البيضاء. يوسف البالغ من العمر 28 عاماً يروي كيف غيّر حياته بالكامل بفضل الإرادة والنظام الغذائي الصحي المستوحى من المطبخ المغربي. بدأ بالمشي يومياً 30 دقيقة ثم أضاف التمارين تدريجياً." },
+  { id:5, cat:"تغذية",      title:"زيت أركان: الذهب المغربي لصحتك",              img:"💛", date:"5 فبراير 2025",  reads:1450, catColor:"#2ECC71", content:"زيت أركان المغربي ليس فقط للبشرة بل كذلك غذاء ممتاز. غني بحمض الأوليك وأوميغا 9 ومضادات الأكسدة. يساعد على خفض الكوليسترول وتحسين صحة القلب. ملعقة صغيرة يومياً تكفي للاستفادة من فوائده المذهلة." },
+  { id:6, cat:"تمارين",     title:"برنامج قوة كامل للمنزل بدون معدات",            img:"💪", date:"3 فبراير 2025",  reads:2100, catColor:"#FF6B35", content:"بناء العضلات لا يحتاج صالة. تعلم كيف تبني جسماً قوياً بتمارين الوزن الطبيعي فقط. الضغط والسحب والقرفصاء والبلانك تكفي لبناء جسم رياضي متوازن إذا طُبّقت بانتظام وشدة متزايدة." },
+];
 
-  function goto(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + page).classList.add('active');
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+const MEALS_DATA = [
+  { name:"فطور صحي مغربي",     items:"خبز بلدي + زيت زيتون + عسل + حليب",          cal:380, protein:12, carbs:55, fat:14, emoji:"🌅" },
+  { name:"غداء: طاجين الخضر",  items:"طاجين الدجاج + خضروات موسمية + خبز كامل",    cal:520, protein:35, carbs:48, fat:18, emoji:"🍗" },
+  { name:"عشاء: حريرة مغربية", items:"حريرة + تمر + لبن رائب",                      cal:310, protein:18, carbs:42, fat:8,  emoji:"🥣" },
+  { name:"وجبة خفيفة: مسمن",   items:"مسمن بالزيتون + شاي مغربي بالنعناع",         cal:220, protein:6,  carbs:32, fat:9,  emoji:"☕" },
+  { name:"سمك شواء بالشرموله", items:"سمك البلطي + شرموله + سلطة فصول",             cal:290, protein:42, carbs:12, fat:10, emoji:"🐟" },
+  { name:"كسكس الخضر الصحي",   items:"كسكس + حمص + خضروات 7 أنواع",                cal:460, protein:22, carbs:78, fat:7,  emoji:"🍲" },
+];
+
+const EXERCISES_DATA = [
+  { name:"القرفصاء",          sets:"4×15",        muscle:"الساقين",          level:"مبتدئ", emoji:"🦵", duration:"20 دقيقة" },
+  { name:"الضغط",             sets:"3×12",        muscle:"الصدر والذراعين", level:"مبتدئ", emoji:"💪", duration:"15 دقيقة" },
+  { name:"الخطوات العالية",   sets:"3×30 ثانية", muscle:"كارديو كامل",     level:"متوسط", emoji:"🏃", duration:"10 دقيقة" },
+  { name:"البلانك",           sets:"3×45 ثانية", muscle:"البطن والظهر",    level:"مبتدئ", emoji:"🧱", duration:"5 دقيقة" },
+  { name:"الجلوس والقيام",    sets:"4×20",        muscle:"كامل الجسم",      level:"مبتدئ", emoji:"⬆️", duration:"15 دقيقة" },
+  { name:"تمرين الطير",       sets:"3×15",        muscle:"الكتفين والظهر", level:"متوسط", emoji:"🦅", duration:"12 دقيقة" },
+];
+
+const CHALLENGE_TASKS = [
+  "50 قرفصاء + 20 دقيقة مشي","30 ضغط + شرب 2L ماء","40 جلسة بطن + تمدد 10 دقائق",
+  "45 دقيقة رياضة + وجبة خضر","20 قفز حبل + تأمل 5 دقائق","يوم راحة فعّال: يوغا خفيفة",
+  "60 قرفصاء + قياس الوزن","35 ضغط + ركض 15 دقيقة","50 رجلة + تمارين التوازن",
+  "تحدي الماء: 3L اليوم","تمرين HIIT 20 دقيقة","50 بطن + مشي سريع",
+  "يوم الصحة النفسية: تأمل 20 دقيقة","70 قرفصاء + بلانك 1 دقيقة","35 ضغط + تمرين ظهر",
+  "يوم الراحة والإطالة","جلسة قوة 45 دقيقة","كارديو 30 دقيقة متواصل",
+  "تحدي المشي: 10,000 خطوة","تمارين المرونة الكاملة","يوم التغذية: وجبات نظيفة فقط",
+  "80 قرفصاء + 40 ضغط","HIIT متقدم 25 دقيقة","يوم الراحة الفعّال",
+  "تحدي القوة الكاملة","ركض 30 دقيقة متواصل","تمارين التوازن والمرونة",
+  "يوم الإطالة والتعافي","التحدي الأخير: أقصى جهد!","يوم الاحتفال: قياس النتائج 🎉"
+];
+
+const SUCCESS_DATA = [
+  { name:"يوسف", city:"الدار البيضاء", lost:"-30kg", months:6, age:28, img:"👨", story:"بدأت رحلتي بعد ما وجدت منصة صحة المغرب. غيّرت نظامي الغذائي واعتمدت على الكسكس الصحي والمشي اليومي. اليوم أشعر بطاقة لم أشعر بها منذ سنوات." },
+  { name:"سلمى", city:"الرباط",         lost:"-18kg", months:4, age:35, img:"👩", story:"كنت أعاني من ضغط العمل والوزن الزائد. اليوم أنا بصحة ممتازة وأمارس اليوغا كل صباح. المنصة غيّرت نظرتي لصحتي تماماً." },
+  { name:"كريم", city:"مراكش",          lost:"-25kg", months:8, age:42, img:"🧔", story:"طبيبي أنصحني بخسارة الوزن بشكل عاجل. اعتمدت على برامج هذه المنصة وتحديات المجتمع. النتائج تجاوزت توقعاتي!" },
+  { name:"نادية", city:"فاس",           lost:"-15kg", months:3, age:27, img:"👱‍♀️", story:"كانت الرياضة في البيت مستحيلة برأيي! لكن تمارين المنزل على هذه المنصة غيّرت حياتي بالكامل في 3 أشهر فقط." },
+];
+
+const MENTAL_DATA = [
+  { title:"5 تقنيات للتنفس تهدّئ قلقك في دقيقتين", emoji:"🌬️", read:"3 دقائق" },
+  { title:"كيف تبني روتيناً صباحياً يحمي صحتك النفسية", emoji:"🌅", read:"5 دقائق" },
+  { title:"التأمل للمبتدئين: دليل مغربي بسيط", emoji:"🧘", read:"4 دقائق" },
+  { title:"تجنب ضغوط الدراسة والعمل بعلم النفس", emoji:"📚", read:"6 دقائق" },
+  { title:"النوم الجيد: مفتاح الصحة الجسدية والنفسية", emoji:"😴", read:"4 دقائق" },
+  { title:"الامتنان اليومي: كيف يغير دماغك للأفضل", emoji:"💚", read:"3 دقائق" },
+];
+
+const TIPS = [
+  "💧 اشرب كوباً من الماء الدافئ مع الليمون كل صباح لتنشيط جهازك الهضمي.",
+  "🚶 30 دقيقة مشي يومياً تعادل نصف ساعة استثمار في صحتك للمستقبل.",
+  "🥗 أضف الخضروات لكل وجبة مغربية – حتى الطاجين يصير أكثر صحةً بالخضر.",
+  "😴 النوم 7-8 ساعات يرفع مستوى التستوستيرون ويقلل الدهون.",
+  "🧘 5 دقائق تأمل قبل النوم تحسن جودة نومك بنسبة 40%.",
+  "🍋 زيت الزيتون البكر مع السلطة يضاعف امتصاص الفيتامينات.",
+];
+
+const WEEK_DAYS = [
+  { d:"الأحد",    e:"🏋️", t:"قوة" },
+  { d:"الإثنين",  e:"🏃", t:"كارديو" },
+  { d:"الثلاثاء", e:"💪", t:"قوة" },
+  { d:"الأربعاء", e:"🧘", t:"يوغا" },
+  { d:"الخميس",   e:"🏋️", t:"قوة" },
+  { d:"الجمعة",   e:"🚶", t:"مشي" },
+  { d:"السبت",    e:"😴", t:"راحة" },
+];
+
+const NUT_TIPS = [
+  { e:"🫒", t:"زيت الزيتون المغربي", d:"4 ملاعق يومياً تحمي القلب والشرايين" },
+  { e:"🌿", t:"زعتر وكمون مغربي", d:"مضادات أكسدة طبيعية في كل طبخ" },
+  { e:"🍋", t:"الحامض المغربي", d:"فيتامين C طبيعي لتحسين المناعة" },
+  { e:"🫐", t:"زيت أركان", d:"أوميغا 9 مغربي خالص ومذهل" },
+  { e:"🌾", t:"الدقيق الكامل", d:"بديل صحي يمنح شبعاً أطول" },
+  { e:"🥜", t:"اللوز المغربي", d:"بروتين نباتي وجبة خفيفة مثالية" },
+];
+
+// ===================== STATE =====================
+let state = {
+  page: "home",
+  user: null,
+  users: [
+    { id:1, username:"فاطمة الزهراء", email:"fatima@ma.com", password:"test123", badges:["daily","nutrition"], verified:false, points:340, challengeDay:5, joinDate:"يناير 2025", city:"الرباط", isAdmin:false },
+    { id:2, username:"محمد أمين",     email:"amine@ma.com",  password:"test123", badges:["fitness","social","verified"], verified:true,  points:890,   challengeDay:15, joinDate:"ديسمبر 2024", city:"كازابلانكا", isAdmin:false },
+    { id:3, username:"HATIM_BOSS",    email:"hatim@admin.ma", password:"admin2024", badges:BADGES_DATA.map(b=>b.id), verified:true, points:99999, challengeDay:30, joinDate:"يناير 2024", city:"مراكش", isAdmin:true },
+  ],
+  chatMessages: [
+    { id:1, user:"فاطمة الزهراء", msg:"السلام عليكم! بدأت تحدي 30 يوم اليوم 💪", time:"10:30", badge:"🔥", verified:false, isAdmin:false },
+    { id:2, user:"محمد أمين",     msg:"أنا في اليوم 15! لا تستسلموا يا جماعة!", time:"10:32", badge:"🏆", verified:true,  isAdmin:false },
+    { id:3, user:"خديجة",         msg:"سؤال: الكسكس الصحي يصح نأكله بعد الرياضة؟", time:"10:35", badge:"🥗", verified:false, isAdmin:false },
+    { id:4, user:"يوسف من كازا", msg:"نعم خديجة! مصدر كارب ممتاز للتعافي 💪",  time:"10:36", badge:"⭐", verified:true,  isAdmin:false },
+    { id:5, user:"HATIM_BOSS",    msg:"🛡️ أدمن: مرحباً بالجميع! منصة صحة المغرب هنا دائماً لدعمكم!", time:"10:40", badge:"✓", verified:true, isAdmin:true },
+  ],
+  challengeDone: {},
+  waterCount: 0,
+  adminTab: "users",
+};
+
+// ===================== HELPERS =====================
+function notify(msg, err=false) {
+  const el = document.getElementById("notif");
+  el.textContent = msg;
+  el.className = err ? "err" : "";
+  el.style.display = "block";
+  setTimeout(() => el.style.display = "none", 3200);
+}
+
+function badgeHTML(color, content) {
+  return `<span class="badge" style="background:${color}22;border:1px solid ${color};color:${color}">${content}</span>`;
+}
+
+function getUser() { return state.user ? state.users.find(u=>u.id===state.user.id)||state.user : null; }
+function setUser(u) { state.user = u ? {id:u.id} : null; }
+
+// ===================== NAVIGATION =====================
+function goto(p) {
+  if ((p==="dashboard"||p==="admin") && !state.user) { goto("auth"); return; }
+  if (p==="admin" && (!state.user || !getUser().isAdmin)) { notify("صلاحية الأدمن فقط!", true); return; }
+  document.querySelectorAll(".page").forEach(el => el.classList.remove("active"));
+  document.getElementById("page-"+p).classList.add("active");
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  document.querySelectorAll(".nav-btn").forEach(btn => { if (btn.getAttribute("onclick") && btn.getAttribute("onclick").includes(`'${p}'`)) btn.classList.add("active"); });
+  state.page = p;
+  if (p==="dashboard") renderDashboard();
+  if (p==="chat") { renderChat(); renderOnlineUsers(); }
+  if (p==="admin") { renderAdminUsers(); renderAdminStats(); }
+  window.scrollTo(0,0);
+}
+
+function requireLogin(p) { state.user ? goto(p) : goto("auth"); }
+
+// ===================== AUTH =====================
+function switchAuth(mode) {
+  document.getElementById("auth-login").style.display = mode==="login" ? "block" : "none";
+  document.getElementById("auth-reg").style.display = mode==="reg" ? "block" : "none";
+  document.getElementById("tab-login").className = mode==="login" ? "btn btn-full" : "btn btn-dark btn-full";
+  document.getElementById("tab-reg").className = mode==="reg" ? "btn btn-full" : "btn btn-dark btn-full";
+}
+
+function doLogin() {
+  const email = document.getElementById("l-email").value.trim();
+  const pass  = document.getElementById("l-pass").value.trim();
+  const found = state.users.find(u => u.email===email && u.password===pass);
+  if (found) {
+    setUser(found);
+    updateNavForUser(found);
+    goto("dashboard");
+    notify("مرحباً بعودتك " + found.username + "! 🎉");
+  } else {
+    notify("البريد أو كلمة المرور خاطئة!", true);
   }
+}
 
-  function login() {
-    const e = document.getElementById('email').value;
-    const p = document.getElementById('pass').value;
-    if(e === "hatim@admin.ma" && p === "admin2024") {
-      currentUser = { name: "HATIM_BOSS", admin: true };
-      document.getElementById('nav-admin').style.display = "block";
-      document.getElementById('auth-btn').style.display = "none";
-      document.getElementById('logout-btn').style.display = "block";
-      notify("مرحباً بك يا مدير المنصة! 🛡️");
-      goto('home');
-    } else {
-      notify("بيانات الدخول غير صحيحة!", true);
-    }
+function doRegister() {
+  const name = document.getElementById("r-name").value.trim();
+  const email= document.getElementById("r-email").value.trim();
+  const pass = document.getElementById("r-pass").value.trim();
+  const city = document.getElementById("r-city").value.trim() || "المغرب";
+  if (!name||!email||!pass) { notify("أكمل جميع الحقول من فضلك", true); return; }
+  if (state.users.find(u=>u.email===email)) { notify("البريد مستخدم مسبقاً!", true); return; }
+  const newU = { id: Date.now(), username:name, email, password:pass, city, badges:[], verified:false, points:50, challengeDay:0, joinDate:"فبراير 2025", isAdmin:false };
+  state.users.push(newU);
+  setUser(newU);
+  updateNavForUser(newU);
+  goto("dashboard");
+  notify("مرحباً " + name + "! حسابك تم بنجاح 🎊");
+}
+
+function logout() {
+  setUser(null);
+  document.getElementById("nav-auth-btn").style.display="";
+  document.getElementById("nav-logout-btn").style.display="none";
+  document.getElementById("nav-dashboard").style.display="none";
+  document.getElementById("nav-admin").style.display="none";
+  goto("home");
+  notify("تم تسجيل الخروج بنجاح");
+}
+
+function updateNavForUser(u) {
+  document.getElementById("nav-auth-btn").style.display="none";
+  const lb = document.getElementById("nav-logout-btn");
+  lb.style.display="";
+  lb.textContent = "خروج 👤 " + u.username;
+  document.getElementById("nav-dashboard").style.display="";
+  if (u.isAdmin) document.getElementById("nav-admin").style.display="";
+}
+
+// ===================== DASHBOARD =====================
+function renderDashboard() {
+  const u = getUser(); if (!u) return;
+  document.getElementById("dash-name").textContent = u.username;
+  document.getElementById("dash-vcheck").style.display = u.verified ? "" : "none";
+  document.getElementById("dash-info").textContent = u.city + " • انضم " + u.joinDate;
+  document.getElementById("dash-points").textContent = u.points.toLocaleString() + " نقطة";
+  document.getElementById("dash-challenge-day").textContent = "اليوم " + u.challengeDay + "/30 من التحدي";
+  const ab = document.getElementById("dash-admin-badge");
+  if (u.isAdmin) { ab.style.display=""; ab.innerHTML = badgeHTML("#FF6B35","🛡️ أدمن"); }
+  else ab.style.display="none";
+  const db = document.getElementById("dash-badges");
+  if (u.badges.length===0) { db.innerHTML = '<span class="text-muted">لا توجد شارات بعد. ابدأ النشاط!</span>'; }
+  else {
+    db.innerHTML = u.badges.map(bid => {
+      const b = BADGES_DATA.find(b=>b.id===bid);
+      return b ? badgeHTML(b.color, b.icon+" "+b.label) : "";
+    }).join(" ");
   }
+  document.getElementById("water-count").textContent = state.waterCount;
+  document.getElementById("water-bar").style.width = (state.waterCount/8*100)+"%";
+}
 
-  function logout() { location.reload(); }
+function addWater() {
+  if (state.waterCount < 8) { state.waterCount++; renderDashboard(); }
+  if (state.waterCount===8) notify("ممتاز! أتممت هدف الماء اليومي 💧🎉");
+}
 
-  function notify(msg, err=false) {
-    const n = document.getElementById('notif');
-    n.textContent = msg; n.style.display = "block";
-    n.style.background = err ? "#ff4757" : "#00c896";
-    setTimeout(() => n.style.display="none", 3000);
-  }
+function updateSteps(val) {
+  const pct = Math.min(100, Math.round((val/10000)*100));
+  document.getElementById("steps-pct").textContent = "الهدف: 10,000 خطوة (" + pct + "%)";
+}
 
-  function renderArticles() {
-    const grid = document.getElementById('articles-grid');
-    grid.innerHTML = articles.map((a, i) => `
-      <div class="card">
-        <div style="font-size:40px">${a.icon}</div>
-        <h3>${a.title}</h3>
-        <button class="btn btn-blue" style="margin-top:10px" onclick="openArticle(${i})">اقرأ المقال الكامل</button>
+function saveDay() {
+  const u = getUser(); if (!u) return;
+  const idx = state.users.findIndex(x=>x.id===u.id);
+  state.users[idx].points += 20;
+  state.user = {id: u.id};
+  renderDashboard();
+  notify("تم حفظ يومك! +20 نقطة 🎉");
+}
+
+// ===================== CHAT =====================
+function renderChat() {
+  const u = getUser();
+  const inp = document.getElementById("chat-inp");
+  if (!u) { inp.placeholder = "سجل دخولك للمشاركة"; inp.disabled = true; }
+  else { inp.placeholder = "اكتب رسالتك..."; inp.disabled = false; }
+  const box = document.getElementById("chat-box");
+  box.innerHTML = state.chatMessages.map(m => {
+    const isAdmin = m.isAdmin;
+    const delBtn = (u && u.isAdmin) ? `<button onclick="deleteMsg(${m.id})" style="background:#e74c3c22;border:1px solid #e74c3c;color:#e74c3c;padding:2px 8px;border-radius:6px;font-size:11px;cursor:pointer;font-family:Tajawal">🗑️</button>` : "";
+    return `<div class="chat-msg">
+      <div class="chat-avatar ${isAdmin?'admin':''}">${m.badge}</div>
+      <div style="flex:1">
+        <div class="chat-meta">
+          <span class="chat-name ${isAdmin?'gold':'green'}">${m.user}</span>
+          ${m.verified ? '<span class="vcheck">✓</span>' : ""}
+          ${isAdmin ? badgeHTML("#FF6B35","🛡️ أدمن") : ""}
+          <span>${m.time}</span>
+          ${delBtn}
+        </div>
+        <div class="chat-bubble ${isAdmin?'admin-bubble':''}">${m.msg}</div>
       </div>
-    `).join('');
+    </div>`;
+  }).join("");
+  box.scrollTop = box.scrollHeight;
+}
+
+function renderOnlineUsers() {
+  const online = state.users.slice(0,3);
+  document.getElementById("online-users").innerHTML = online.map(u =>
+    `<div class="flex-gap items-center mb-12">
+      <div style="width:10px;height:10px;border-radius:50%;background:#00c896"></div>
+      <span class="fw-700">${u.username}</span>
+      ${u.verified ? '<span class="vcheck">✓</span>' : ""}
+      ${u.isAdmin ? badgeHTML("#FF6B35","🛡️") : ""}
+    </div>`
+  ).join("");
+}
+
+function sendChat() {
+  const u = getUser(); if (!u) { goto("auth"); return; }
+  const inp = document.getElementById("chat-inp");
+  const msg = inp.value.trim(); if (!msg) return;
+  const badge = BADGES_DATA.find(b=>u.badges.includes(b.id));
+  state.chatMessages.push({
+    id: Date.now(),
+    user: u.username,
+    msg,
+    time: new Date().toLocaleTimeString("ar-MA",{hour:"2-digit",minute:"2-digit"}),
+    badge: badge ? badge.icon : "💬",
+    verified: u.verified,
+    isAdmin: u.isAdmin
+  });
+  inp.value = "";
+  renderChat();
+}
+
+function deleteMsg(id) {
+  state.chatMessages = state.chatMessages.filter(m=>m.id!==id);
+  renderChat();
+  if (state.page==="admin") renderAdminChat();
+  notify("تم حذف الرسالة");
+}
+
+// ===================== CHALLENGE =====================
+function renderChallenge() {
+  const u = getUser();
+  const show = !u;
+  document.getElementById("challenge-login-btn").style.display = show ? "" : "none";
+  const grid = document.getElementById("challenge-grid");
+  grid.innerHTML = CHALLENGE_TASKS.map((task, i) => {
+    const day = i+1;
+    const done = state.challengeDone[day] || (u && day <= u.challengeDay);
+    return `<div class="day-card ${done?'done':''}">
+      <div style="font-size:20px;font-weight:900;color:${done?'#00c896':'#8899aa'}">يوم ${day}</div>
+      <div class="fs-12 text-muted" style="margin:6px 0;line-height:1.5">${task}</div>
+      <div class="fs-12 text-gold">+${day*10} XP</div>
+      ${done
+        ? '<div class="text-green fw-700 mt-8">✅ مكتمل</div>'
+        : `<button class="btn btn-sm mt-8 btn-full" onclick="completeDay(${day})">أكمله</button>`}
+    </div>`;
+  }).join("");
+}
+
+function completeDay(day) {
+  const u = getUser();
+  if (!u) { goto("auth"); return; }
+  state.challengeDone[day] = true;
+  const xp = day * 10;
+  const idx = state.users.findIndex(x=>x.id===u.id);
+  state.users[idx].points += xp;
+  state.users[idx].challengeDay = Math.max(state.users[idx].challengeDay, day);
+  if (day===30) {
+    const newBadges = [...new Set([...state.users[idx].badges, "challenge","streak30"])];
+    state.users[idx].badges = newBadges;
+    notify("🎉 أكملت التحدي! حصلت على شارة محارب التحدي والماسة الذهبية!");
+  } else {
+    notify("اليوم " + day + " مكتمل! +" + xp + " XP 💪");
   }
+  renderChallenge();
+}
 
-  function openArticle(i) {
-    document.getElementById('modal-body').innerHTML = `<h2>${articles[i].title}</h2><p style="margin-top:15px; line-height:1.6">${articles[i].content}</p>`;
-    document.getElementById('modal').style.display = "flex";
-  }
+// ===================== ADMIN =====================
+function switchAdminTab(tab) {
+  state.adminTab = tab;
+  ["users","chat","stats"].forEach(t => {
+    document.getElementById("admin-"+t+"-panel").style.display = t===tab ? "" : "none";
+    document.getElementById("atab-"+t).className = t===tab ? "btn" : "btn btn-dark";
+  });
+  if (tab==="chat") renderAdminChat();
+  if (tab==="stats") renderAdminStats();
+  if (tab==="users") renderAdminUsers();
+}
 
-  function closeModal() { document.getElementById('modal').style.display = "none"; }
+function renderAdminUsers() {
+  const list = document.getElementById("admin-users-list");
+  list.innerHTML = `<h3 class="fw-800 mb-16">👥 إدارة المستخدمين (${state.users.length})</h3>` +
+    state.users.map(u => `
+    <div class="admin-row">
+      <div style="flex:1;min-width:140px">
+        <div class="flex-gap items-center gap-8">
+          <span class="fw-800">${u.username}</span>
+          ${u.verified ? '<span class="vcheck">✓</span>' : ""}
+          ${u.isAdmin ? badgeHTML("#FF6B35","🛡️") : ""}
+        </div>
+        <div class="fs-12 text-muted">${u.email} • ${u.city}</div>
+        <div class="fs-12 text-muted">${u.points.toLocaleString()} نقطة • ${u.badges.length} شارة</div>
+      </div>
+      <div class="flex-gap">
+        ${!u.verified && !u.isAdmin ? `<button class="btn btn-sm" style="background:linear-gradient(135deg,#1DA1F2,#0d8ecf)" onclick="verifyUser(${u.id})">✓ وثّق</button>` : ""}
+        ${!u.isAdmin ? `<button class="btn btn-sm btn-red" onclick="deleteUser(${u.id})">حذف</button>` : ""}
+      </div>
+    </div>`
+  ).join("");
+}
 
-  function sendStory() {
-    const txt = document.getElementById('story-inp').value;
-    if(!txt) return;
-    stories.push({ name: currentUser ? currentUser.name : "مستخدم", text: txt });
-    document.getElementById('story-inp').value = "";
-    renderStories();
-    notify("تم نشر قصتك بنجاح! ⭐");
-  }
+function verifyUser(uid) {
+  const idx = state.users.findIndex(u=>u.id===uid);
+  state.users[idx].verified = true;
+  if (!state.users[idx].badges.includes("verified")) state.users[idx].badges.push("verified");
+  notify("تم توثيق الحساب بنجاح ✓ العلامة الزرقاء ممنوحة");
+  renderAdminUsers();
+  if (state.user && state.user.id===uid) renderDashboard();
+}
 
-  function renderStories() {
-    document.getElementById('success-list').innerHTML = stories.map(s => `
-      <div class="card"><strong>${s.name}:</strong> <p>${s.text}</p></div>
-    `).join('');
-  }
+function deleteUser(uid) {
+  state.users = state.users.filter(u=>u.id!==uid);
+  notify("تم حذف المستخدم");
+  renderAdminUsers();
+  renderAdminStats();
+}
 
-  function sendChat() {
-    const inp = document.getElementById('msg-inp');
-    const box = document.getElementById('chat-box');
-    if(!inp.value) return;
-    const name = currentUser ? currentUser.name : "زائر";
-    box.innerHTML += `<div><strong style="color:var(--green)">${name}:</strong> ${inp.value}</div>`;
-    inp.value = "";
-    box.scrollTop = box.scrollHeight;
-  }
+function renderAdminChat() {
+  const list = document.getElementById("admin-chat-list");
+  list.innerHTML = state.chatMessages.map(m => `
+    <div class="admin-row">
+      <div style="flex:1">
+        <span class="fw-700">${m.user}</span>
+        <span class="text-muted fs-12" style="margin-right:8px">${m.time}</span>
+        <div class="fs-14" style="color:#ccd">${m.msg}</div>
+      </div>
+      <button onclick="deleteMsg(${m.id})" style="background:#e74c3c22;border:1px solid #e74c3c;color:#e74c3c;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:Tajawal">🗑️</button>
+    </div>`
+  ).join("");
+}
 
-  // تشغيل المحتوى فوراً
+function sendAdminMsg() {
+  const inp = document.getElementById("admin-msg-inp");
+  const msg = inp.value.trim(); if (!msg) return;
+  state.chatMessages.push({
+    id: Date.now(), user:"HATIM_BOSS",
+    msg: "🛡️ إشعار الإدارة: " + msg,
+    time: new Date().toLocaleTimeString("ar-MA",{hour:"2-digit",minute:"2-digit"}),
+    badge:"✓", verified:true, isAdmin:true
+  });
+  inp.value = "";
+  notify("تم إرسال رسالة الإدارة للجميع! 📢");
+  renderAdminChat();
+}
+
+function renderAdminStats() {
+  const grid = document.getElementById("admin-stats-grid");
+  const totalPoints = state.users.reduce((s,u)=>s+u.points,0);
+  const avgPoints = Math.round(totalPoints / state.users.length);
+  const totalBadges = state.users.reduce((s,u)=>s+u.badges.length,0);
+  const stats = [
+    ["👥","إجمالي المستخدمين", state.users.length, "#00c896"],
+    ["✓","الحسابات الموثقة", state.users.filter(u=>u.verified).length, "#1DA1F2"],
+    ["💬","رسائل الشات", state.chatMessages.length, "#9B59B6"],
+    ["🏆","مكملو التحدي", Object.keys(state.challengeDone).length, "#FFD700"],
+    ["📊","متوسط النقاط", avgPoints, "#FF6B35"],
+    ["🏅","إجمالي الشارات", totalBadges, "#2ECC71"],
+  ];
+  grid.innerHTML = stats.map(([i,l,v,c]) =>
+    `<div class="stat-card"><div class="fs-36">${i}</div><div class="fs-32 fw-900" style="color:${c}">${v.toLocaleString()}</div><div class="text-muted">${l}</div></div>`
+  ).join("");
+}
+
+function useAdminCode() {
+  const u = getUser();
+  if (!u || !u.isAdmin) { notify("ليس لديك صلاحية أدمن!", true); return; }
+  const code = document.getElementById("admin-code-inp").value.trim();
+  if (code !== ADMIN_CODE) { notify("الكود خاطئ! حاول مرة أخرى", true); return; }
+  const idx = state.users.findIndex(x=>x.id===u.id);
+  state.users[idx].badges = BADGES_DATA.map(b=>b.id);
+  state.users[idx].verified = true;
+  state.users[idx].points = 99999;
+  notify("🚀 كود الأدمن الخارق فُعّل! جميع الشارات + توثيق فوري + 99,999 نقطة!");
+  document.getElementById("admin-code-inp").value = "";
+  renderAdminUsers();
+  renderDashboard();
+}
+
+// ===================== BMI =====================
+function calcBMI() {
+  const w = parseFloat(document.getElementById("bmi-w").value);
+  const h = parseFloat(document.getElementById("bmi-h").value);
+  if (!w||!h||w<=0||h<=0) { notify("أدخل قيماً صحيحة!", true); return; }
+  const bmi = (w / ((h/100)**2)).toFixed(1);
+  let status, color;
+  if (bmi < 18.5) { status="نقص في الوزن"; color="#00a8ff"; }
+  else if (bmi < 25) { status="وزن مثالي ✅"; color="#00c896"; }
+  else if (bmi < 30) { status="زيادة في الوزن"; color="#FFD700"; }
+  else { status="سمنة – استشر طبيباً"; color="#e74c3c"; }
+  const res = document.getElementById("bmi-result");
+  res.style.display = "";
+  res.innerHTML = `<div style="font-size:42px;font-weight:900;color:${color}">${bmi}</div><div style="font-size:18px;font-weight:700;color:${color}">${status}</div>`;
+}
+
+// ===================== RENDER STATIC SECTIONS =====================
+function renderArticles() {
+  document.getElementById("articles-grid").innerHTML = ARTICLES_DATA.map(a =>
+    `<div class="card" style="cursor:pointer" onclick="openArticle(${a.id})">
+      <div style="font-size:48px;margin-bottom:10px">${a.img}</div>
+      ${badgeHTML(a.catColor, a.cat)}
+      <h3 style="margin:10px 0 6px;font-size:16px;font-weight:700">${a.title}</h3>
+      <div class="text-muted fs-12">${a.date} • ${a.reads.toLocaleString()} قراءة</div>
+    </div>`
+  ).join("");
+}
+
+function openArticle(id) {
+  const a = ARTICLES_DATA.find(x=>x.id===id);
+  document.getElementById("article-content").innerHTML = `
+    <div style="font-size:72px;text-align:center;margin-bottom:20px">${a.img}</div>
+    ${badgeHTML(a.catColor, a.cat)}
+    <h1 style="font-size:26px;font-weight:900;margin:16px 0">${a.title}</h1>
+    <div class="text-muted mb-16">${a.date} • ${a.reads.toLocaleString()} قراءة</div>
+    <p style="font-size:16px;line-height:1.9;color:#ccd;margin-bottom:14px">${a.content}</p>
+    <p style="font-size:16px;line-height:1.9;color:#ccd;margin-bottom:20px">تعتمد منصة صحة المغرب على أحدث الأبحاث العلمية في مجال الصحة والتغذية المتوافقة مع نمط الحياة المغربي الأصيل. من الرباط إلى أكادير، من الدار البيضاء إلى مراكش – جميع المغاربة يستحقون حياة صحية رائعة.</p>
+    <div class="flex-gap flex-wrap">
+      <button class="btn" onclick="notify('تم تسجيل إعجابك! ❤️')">❤️ أعجبني</button>
+      <button class="btn btn-blue" onclick="goto('chat')">💬 ناقش في الشات</button>
+    </div>`;
+  goto("article");
+}
+
+function renderBadgesShowcase() {
+  document.getElementById("badges-showcase").innerHTML = BADGES_DATA.map(b =>
+    `<div class="card" style="padding:14px;text-align:center;min-width:120px;max-width:160px">
+      <div style="font-size:32px">${b.icon}</div>
+      <div style="font-size:13px;font-weight:700;color:${b.color};margin-top:6px">${b.label}</div>
+      <div class="fs-11 text-muted mt-8">${b.desc}</div>
+    </div>`
+  ).join("");
+}
+
+function renderExercises() {
+  document.getElementById("exercises-grid").innerHTML = EXERCISES_DATA.map(ex =>
+    `<div class="card" style="position:relative;overflow:hidden">
+      <div style="font-size:48px">${ex.emoji}</div>
+      <h3 style="margin:10px 0 8px;font-size:18px;font-weight:800">${ex.name}</h3>
+      <div class="flex-gap flex-wrap mb-12">
+        ${badgeHTML("#00c896","💪 "+ex.muscle)}
+        ${badgeHTML("#00a8ff","📊 "+ex.level)}
+      </div>
+      <div class="text-muted fs-14" style="line-height:2">
+        <div>🔁 التكرار: <strong style="color:var(--text)">${ex.sets}</strong></div>
+        <div>⏱️ المدة: <strong style="color:var(--text)">${ex.duration}</strong></div>
+      </div>
+      <button class="btn btn-full mt-12 fs-13" onclick="notify('تمرين ${ex.name} مضاف لجلستك! +15 نقطة 💪')">▶️ ابدأ التمرين</button>
+    </div>`
+  ).join("");
+
+  const today = new Date().getDay();
+  document.getElementById("week-grid").innerHTML = WEEK_DAYS.map((d,i) =>
+    `<div style="text-align:center;padding:12px;background:${i===today?'rgba(0,200,150,0.2)':'rgba(255,255,255,0.04)'};border-radius:8px;border:${i===today?'1px solid #00c896':'1px solid transparent'}">
+      <div style="font-size:22px">${d.e}</div>
+      <div class="fs-12 fw-700 mt-8">${d.d}</div>
+      <div class="fs-10 text-muted">${d.t}</div>
+    </div>`
+  ).join("");
+}
+
+function renderNutrition() {
+  document.getElementById("meals-grid").innerHTML = MEALS_DATA.map(m =>
+    `<div class="card">
+      <div style="font-size:44px">${m.emoji}</div>
+      <h3 style="margin:10px 0 6px;font-weight:800">${m.name}</h3>
+      <p class="text-muted fs-14" style="margin-bottom:12px">${m.items}</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin-bottom:14px">
+        ${[["🔥",m.cal,"سعرة"],["🥩",m.protein+"g","بروتين"],["🍞",m.carbs+"g","كارب"],["🫙",m.fat+"g","دهون"]].map(([i,v,l])=>
+          `<div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px">
+            <div>${i}</div><div class="fw-900 text-green">${v}</div><div class="fs-10 text-muted">${l}</div>
+          </div>`).join("")}
+      </div>
+      <button class="btn btn-full fs-13" onclick="notify('تم إضافة ${m.name} لسجلك اليومي! ✅')">+ أضف لسجلي</button>
+    </div>`
+  ).join("");
+
+  document.getElementById("nutrition-tips").innerHTML = NUT_TIPS.map(t =>
+    `<div style="background:rgba(0,200,150,0.07);border:1px solid rgba(0,200,150,0.2);border-radius:10px;padding:14px">
+      <div style="font-size:28px">${t.e}</div>
+      <div class="fw-700 mt-8">${t.t}</div>
+      <div class="fs-13 text-muted mt-8">${t.d}</div>
+    </div>`
+  ).join("");
+}
+
+function renderSuccess() {
+  document.getElementById("success-grid").innerHTML = SUCCESS_DATA.map(s =>
+    `<div class="card" style="text-align:center">
+      <div style="font-size:56px">${s.img}</div>
+      <h3 class="fw-900 fs-20" style="margin:10px 0 4px">${s.name}</h3>
+      <div class="text-muted mb-12">${s.city} • ${s.age} سنة</div>
+      <div class="flex-gap flex-wrap flex-center mb-16">
+        ${badgeHTML("#00c896",s.lost)}
+        ${badgeHTML("#FFD700","⏱️ "+s.months+" أشهر")}
+      </div>
+      <p class="fs-15" style="color:#ccd;line-height:1.7;font-style:italic">"${s.story}"</p>
+    </div>`
+  ).join("");
+}
+
+function renderMental() {
+  document.getElementById("mental-grid").innerHTML = MENTAL_DATA.map(a =>
+    `<div class="card">
+      <div style="font-size:44px">${a.emoji}</div>
+      <h3 class="fw-800" style="margin:10px 0 6px">${a.title}</h3>
+      <div class="text-muted fs-13">⏱️ ${a.read} قراءة</div>
+      <button class="btn btn-full mt-12 fs-13" style="background:linear-gradient(135deg,#9B59B6,#8e44ad)" onclick="notify('جاري فتح المقال... +10 نقاط ✅')">اقرأ الآن</button>
+    </div>`
+  ).join("");
+}
+
+function renderTip() {
+  const tip = TIPS[Math.floor(Math.random()*TIPS.length)];
+  document.getElementById("tip-of-day").innerHTML =
+    `<p style="font-size:17px;line-height:1.8;padding:4px 0">${tip}</p>
+    <button class="btn btn-sm mt-12" onclick="renderTip()">🔄 نصيحة أخرى</button>`;
+}
+
+// ===================== INIT =====================
+(function init() {
   renderArticles();
-  renderStories();
+  renderBadgesShowcase();
+  renderExercises();
+  renderNutrition();
+  renderMental();
+  renderSuccess();
+  renderTip();
+  renderChallenge();
+  renderOnlineUsers();
+})();
 </script>
-
 </body>
 </html>
