@@ -12,7 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Universe 🌌 — الدليل الشامل لأدوات الذكاء الاصطناعي</title>
+<title>AI Universe — الدليل الشامل لأدوات الذكاء الاصطناعي</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -238,11 +238,12 @@ footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,.97);backdrop-
     <div class="tab" onclick="filterCat('marketing',this)">📈 تسويق</div>
     <div class="tab" onclick="filterCat('3d',this)">🧊 3D</div>
     <div class="tab" onclick="filterCat('education',this)">📚 تعليم</div>
+    <div class="tab" onclick="filterCat('platforms',this)">🌐 منصات</div>
   </div>
   <div class="grid" id="toolsGrid"></div>
   <div class="dev-box">
     <h3>👨‍💻 مطور الموقع: حاتم</h3>
-    <p>يتم الآن أرشفة وتدقيق أكثر من 10,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً.</p>
+    <p>يتم الآن أرشفة وتدقيق أكثر من 5,000 أداة ذكاء اصطناعي عالمية.</p>
     <span class="coming-badge">تحديث ضخم قادم قريباً 🔥</span>
   </div>
 </div>
@@ -276,7 +277,7 @@ footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,.97);backdrop-
       </div>
     </div>
     <div class="team-member">
-      <div class="team-avatar team-avatar-comm">🌐</div>
+      <div class="team-avatar team-avatar-comm" style="background:linear-gradient(135deg,#1e3a5f,#0ea5e9);font-size:18px;border:2px solid rgba(14,165,233,0.4);box-shadow:0 0 12px rgba(14,165,233,0.3);">🌐</div>
       <div>
         <div class="team-name">عزدين</div>
         <div class="team-role">مُدير التواصل — Communications Manager</div>
@@ -286,7 +287,7 @@ footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,.97);backdrop-
   </div>
 
   <div class="announce-box">
-    <p>🔥 يتم الآن أرشفة وتدقيق أكثر من 10,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً. تحديث ضخم قادم خلال أيام.. ابقوا منتظرين!</p>
+    <p>🔥 يتم الآن أرشفة وتدقيق أكثر من 5,000 أداة ذكاء اصطناعي عالمية. تحديث ضخم قادم خلال أيام.. ابقوا منتظرين!</p>
   </div>
 
   <!-- CHANGE 1: Formspree form -->
@@ -313,7 +314,7 @@ footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,.97);backdrop-
     <div class="admin-warn">⚠️ هذه اللوحة خاصة بالمطور الوحيد للموقع، الوصول غير المصرح به محظور</div>
     <h2>🛡️ لوحة المطور</h2>
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num" id="dynamicToolCount">641+</div><div class="stat-lbl">أداة في القاعدة</div></div>
+      <div class="stat-card"><div class="stat-num" id="dynamicToolCount">700</div><div class="stat-lbl">أداة في القاعدة</div></div>
       <div class="stat-card"><div class="stat-num">2026</div><div class="stat-lbl">سنة الإطلاق</div></div>
     </div>
     
@@ -968,115 +969,98 @@ const DB = [
 {name:"Skillshare",cat:"education",desc:"منصة للتعلم الإبداعي وتطوير المهارات",url:"https://skillshare.com",img:G('skillshare.com')},
 {name:"Pluralsight",cat:"education",desc:"دورات تدريبية متقدمة في البرمجة والتكنولوجيا",url:"https://pluralsight.com",img:G('pluralsight.com')},
 {name:"LinkedIn Learning",cat:"education",desc:"تطوير مهارات الأعمال والتقنية",url:"https://linkedin.com/learning",img:G('linkedin.com')},
-{name:"Codecademy",cat:"education",desc:"تعلم البرمجة تفاعلياً من المتصفح",url:"https://codecademy.com",img:G('codecademy.com')},
-{name:"freeCodeCamp",cat:"education",desc:"منصة مجانية شاملة لتعلم البرمجة",url:"https://freecodecamp.org",img:G('freecodecamp.org')},
+{name:"Codecademy",cat:"platforms",desc:"تعلم البرمجة تفاعلياً من المتصفح",url:"https://codecademy.com",img:G('codecademy.com')},
+{name:"freeCodeCamp",cat:"platforms",desc:"منصة مجانية شاملة لتعلم البرمجة",url:"https://freecodecamp.org",img:G('freecodecamp.org')},
 {name:"Treehouse",cat:"education",desc:"دورات تقنية وتطوير المواقع تفاعلياً",url:"https://teamtreehouse.com",img:G('teamtreehouse.com')},
 {name:"DataCamp",cat:"education",desc:"دورات تفاعلية في علم البيانات والـ AI",url:"https://datacamp.com",img:G('datacamp.com')},
 {name:"Dataquest",cat:"education",desc:"تعلم علوم البيانات وتحليلها بخطوات عملية",url:"https://dataquest.io",img:G('dataquest.io')},
-{name:"Kaggle",cat:"education",desc:"منصة مسابقات وتعلم للبيانات والذكاء",url:"https://kaggle.com",img:G('kaggle.com')},
-{name:"Brilliant",cat:"education",desc:"تعلم الرياضيات والعلوم والبرمجة تفاعلياً",url:"https://brilliant.org",img:G('brilliant.org')},
-{name:"Khan Academy",cat:"education",desc:"تعليم مجاني بمستوى عالمي لأي شخص",url:"https://khanacademy.org",img:G('khanacademy.org')},
+{name:"Kaggle",cat:"platforms",desc:"منصة مسابقات وتعلم للبيانات والذكاء",url:"https://kaggle.com",img:G('kaggle.com')},
+{name:"Brilliant",cat:"platforms",desc:"تعلم الرياضيات والعلوم والبرمجة تفاعلياً",url:"https://brilliant.org",img:G('brilliant.org')},
+{name:"Khan Academy",cat:"platforms",desc:"تعليم مجاني بمستوى عالمي لأي شخص",url:"https://khanacademy.org",img:G('khanacademy.org')},
 {name:"MasterClass",cat:"education",desc:"دورات من خبراء ومشاهير عالميين",url:"https://masterclass.com",img:G('masterclass.com')},
-{name:"AI Tool 1 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-1.com",img:G('example-ai-tool-1.com')},
-{name:"AI Tool 2 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-2.com",img:G('example-ai-tool-2.com')},
-{name:"AI Tool 3 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-3.com",img:G('example-ai-tool-3.com')},
-{name:"AI Tool 4 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-4.com",img:G('example-ai-tool-4.com')},
-{name:"AI Tool 5 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-5.com",img:G('example-ai-tool-5.com')},
-{name:"AI Tool 6 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-6.com",img:G('example-ai-tool-6.com')},
-{name:"AI Tool 7 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-7.com",img:G('example-ai-tool-7.com')},
-{name:"AI Tool 8 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-8.com",img:G('example-ai-tool-8.com')},
-{name:"AI Tool 9 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-9.com",img:G('example-ai-tool-9.com')},
-{name:"AI Tool 10 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-10.com",img:G('example-ai-tool-10.com')},
-{name:"AI Tool 11 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-11.com",img:G('example-ai-tool-11.com')},
-{name:"AI Tool 12 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-12.com",img:G('example-ai-tool-12.com')},
-{name:"AI Tool 13 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-13.com",img:G('example-ai-tool-13.com')},
-{name:"AI Tool 14 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-14.com",img:G('example-ai-tool-14.com')},
-{name:"AI Tool 15 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-15.com",img:G('example-ai-tool-15.com')},
-{name:"AI Tool 16 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-16.com",img:G('example-ai-tool-16.com')},
-{name:"AI Tool 17 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-17.com",img:G('example-ai-tool-17.com')},
-{name:"AI Tool 18 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-18.com",img:G('example-ai-tool-18.com')},
-{name:"AI Tool 19 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-19.com",img:G('example-ai-tool-19.com')},
-{name:"AI Tool 20 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-20.com",img:G('example-ai-tool-20.com')},
-{name:"AI Tool 21 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-21.com",img:G('example-ai-tool-21.com')},
-{name:"AI Tool 22 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-22.com",img:G('example-ai-tool-22.com')},
-{name:"AI Tool 23 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-23.com",img:G('example-ai-tool-23.com')},
-{name:"AI Tool 24 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-24.com",img:G('example-ai-tool-24.com')},
-{name:"AI Tool 25 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-25.com",img:G('example-ai-tool-25.com')},
-{name:"AI Tool 26 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-26.com",img:G('example-ai-tool-26.com')},
-{name:"AI Tool 27 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-27.com",img:G('example-ai-tool-27.com')},
-{name:"AI Tool 28 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-28.com",img:G('example-ai-tool-28.com')},
-{name:"AI Tool 29 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-29.com",img:G('example-ai-tool-29.com')},
-{name:"AI Tool 30 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-30.com",img:G('example-ai-tool-30.com')},
-{name:"AI Tool 31 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-31.com",img:G('example-ai-tool-31.com')},
-{name:"AI Tool 32 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-32.com",img:G('example-ai-tool-32.com')},
-{name:"AI Tool 33 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-33.com",img:G('example-ai-tool-33.com')},
-{name:"AI Tool 34 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-34.com",img:G('example-ai-tool-34.com')},
-{name:"AI Tool 35 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-35.com",img:G('example-ai-tool-35.com')},
-{name:"AI Tool 36 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-36.com",img:G('example-ai-tool-36.com')},
-{name:"AI Tool 37 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-37.com",img:G('example-ai-tool-37.com')},
-{name:"AI Tool 38 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-38.com",img:G('example-ai-tool-38.com')},
-{name:"AI Tool 39 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-39.com",img:G('example-ai-tool-39.com')},
-{name:"AI Tool 40 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-40.com",img:G('example-ai-tool-40.com')},
-{name:"AI Tool 41 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-41.com",img:G('example-ai-tool-41.com')},
-{name:"AI Tool 42 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-42.com",img:G('example-ai-tool-42.com')},
-{name:"AI Tool 43 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-43.com",img:G('example-ai-tool-43.com')},
-{name:"AI Tool 44 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-44.com",img:G('example-ai-tool-44.com')},
-{name:"AI Tool 45 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-45.com",img:G('example-ai-tool-45.com')},
-{name:"AI Tool 46 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-46.com",img:G('example-ai-tool-46.com')},
-{name:"AI Tool 47 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-47.com",img:G('example-ai-tool-47.com')},
-{name:"AI Tool 48 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-48.com",img:G('example-ai-tool-48.com')},
-{name:"AI Tool 49 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-49.com",img:G('example-ai-tool-49.com')},
-{name:"AI Tool 50 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-50.com",img:G('example-ai-tool-50.com')},
-{name:"AI Tool 51 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-51.com",img:G('example-ai-tool-51.com')},
-{name:"AI Tool 52 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-52.com",img:G('example-ai-tool-52.com')},
-{name:"AI Tool 53 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-53.com",img:G('example-ai-tool-53.com')},
-{name:"AI Tool 54 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-54.com",img:G('example-ai-tool-54.com')},
-{name:"AI Tool 55 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-55.com",img:G('example-ai-tool-55.com')},
-{name:"AI Tool 56 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-56.com",img:G('example-ai-tool-56.com')},
-{name:"AI Tool 57 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-57.com",img:G('example-ai-tool-57.com')},
-{name:"AI Tool 58 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-58.com",img:G('example-ai-tool-58.com')},
-{name:"AI Tool 59 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-59.com",img:G('example-ai-tool-59.com')},
-{name:"AI Tool 60 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-60.com",img:G('example-ai-tool-60.com')},
-{name:"AI Tool 61 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-61.com",img:G('example-ai-tool-61.com')},
-{name:"AI Tool 62 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-62.com",img:G('example-ai-tool-62.com')},
-{name:"AI Tool 63 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-63.com",img:G('example-ai-tool-63.com')},
-{name:"AI Tool 64 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-64.com",img:G('example-ai-tool-64.com')},
-{name:"AI Tool 65 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-65.com",img:G('example-ai-tool-65.com')},
-{name:"AI Tool 66 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-66.com",img:G('example-ai-tool-66.com')},
-{name:"AI Tool 67 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-67.com",img:G('example-ai-tool-67.com')},
-{name:"AI Tool 68 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-68.com",img:G('example-ai-tool-68.com')},
-{name:"AI Tool 69 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-69.com",img:G('example-ai-tool-69.com')},
-{name:"AI Tool 70 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-70.com",img:G('example-ai-tool-70.com')},
-{name:"AI Tool 71 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-71.com",img:G('example-ai-tool-71.com')},
-{name:"AI Tool 72 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-72.com",img:G('example-ai-tool-72.com')},
-{name:"AI Tool 73 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-73.com",img:G('example-ai-tool-73.com')},
-{name:"AI Tool 74 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-74.com",img:G('example-ai-tool-74.com')},
-{name:"AI Tool 75 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-75.com",img:G('example-ai-tool-75.com')},
-{name:"AI Tool 76 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-76.com",img:G('example-ai-tool-76.com')},
-{name:"AI Tool 77 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-77.com",img:G('example-ai-tool-77.com')},
-{name:"AI Tool 78 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-78.com",img:G('example-ai-tool-78.com')},
-{name:"AI Tool 79 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-79.com",img:G('example-ai-tool-79.com')},
-{name:"AI Tool 80 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-80.com",img:G('example-ai-tool-80.com')},
-{name:"AI Tool 81 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-81.com",img:G('example-ai-tool-81.com')},
-{name:"AI Tool 82 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-82.com",img:G('example-ai-tool-82.com')},
-{name:"AI Tool 83 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-83.com",img:G('example-ai-tool-83.com')},
-{name:"AI Tool 84 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-84.com",img:G('example-ai-tool-84.com')},
-{name:"AI Tool 85 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-85.com",img:G('example-ai-tool-85.com')},
-{name:"AI Tool 86 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-86.com",img:G('example-ai-tool-86.com')},
-{name:"AI Tool 87 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-87.com",img:G('example-ai-tool-87.com')},
-{name:"AI Tool 88 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-88.com",img:G('example-ai-tool-88.com')},
-{name:"AI Tool 89 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-89.com",img:G('example-ai-tool-89.com')},
-{name:"AI Tool 90 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-90.com",img:G('example-ai-tool-90.com')},
-{name:"AI Tool 91 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-91.com",img:G('example-ai-tool-91.com')},
-{name:"AI Tool 92 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-92.com",img:G('example-ai-tool-92.com')},
-{name:"AI Tool 93 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-93.com",img:G('example-ai-tool-93.com')},
-{name:"AI Tool 94 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-94.com",img:G('example-ai-tool-94.com')},
-{name:"AI Tool 95 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-95.com",img:G('example-ai-tool-95.com')},
-{name:"AI Tool 96 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-96.com",img:G('example-ai-tool-96.com')},
-{name:"AI Tool 97 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-97.com",img:G('example-ai-tool-97.com')},
-{name:"AI Tool 98 Pro",cat:"education",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-98.com",img:G('example-ai-tool-98.com')},
-{name:"AI Tool 99 Pro",cat:"text",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-99.com",img:G('example-ai-tool-99.com')},
-{name:"AI Tool 100 Pro",cat:"image",desc:"أداة ذكاء اصطناعي قوية لاحتياجاتك",url:"https://example-ai-tool-100.com",img:G('example-ai-tool-100.com')}
+{name:"GitHub",cat:"platforms",desc:"أكبر منصة لاستضافة المشاريع البرمجية",url:"https://github.com",img:G('github.com')},
+{name:"GitLab",cat:"platforms",desc:"منصة DevOps متكاملة لإدارة المشاريع",url:"https://gitlab.com",img:G('gitlab.com')},
+{name:"Bitbucket",cat:"platforms",desc:"استضافة مشاريع Git من Atlassian",url:"https://bitbucket.org",img:G('bitbucket.org')},
+{name:"Stack Overflow",cat:"platforms",desc:"أكبر مجتمع للمطورين لحل المشاكل البرمجية",url:"https://stackoverflow.com",img:G('stackoverflow.com')},
+{name:"Vercel",cat:"platforms",desc:"منصة نشر تطبيقات الويب الحديثة",url:"https://vercel.com",img:G('vercel.com')},
+{name:"Netlify",cat:"platforms",desc:"نشر وإدارة مواقع JAMstack",url:"https://netlify.com",img:G('netlify.com')},
+{name:"Railway",cat:"platforms",desc:"نشر التطبيقات والخدمات السحابية بسهولة",url:"https://railway.app",img:G('railway.app')},
+{name:"Render",cat:"platforms",desc:"منصة سحابية حديثة لنشر التطبيقات",url:"https://render.com",img:G('render.com')},
+{name:"DigitalOcean",cat:"platforms",desc:"خوادم سحابية للمطورين والشركات",url:"https://digitalocean.com",img:G('digitalocean.com')},
+{name:"Heroku",cat:"platforms",desc:"منصة PaaS لنشر التطبيقات بسرعة",url:"https://heroku.com",img:G('heroku.com')},
+{name:"Supabase",cat:"platforms",desc:"بديل Firebase مفتوح المصدر للمطورين",url:"https://supabase.com",img:G('supabase.com')},
+{name:"Firebase",cat:"platforms",desc:"منصة Google لبناء التطبيقات السحابية",url:"https://firebase.google.com",img:G('firebase.google.com')},
+{name:"PlanetScale",cat:"platforms",desc:"قاعدة بيانات MySQL سحابية قابلة للتوسع",url:"https://planetscale.com",img:G('planetscale.com')},
+{name:"MongoDB Atlas",cat:"platforms",desc:"قاعدة بيانات NoSQL سحابية متقدمة",url:"https://mongodb.com/atlas",img:G('mongodb.com')},
+{name:"Cloudflare",cat:"platforms",desc:"حماية وتسريع المواقع والتطبيقات",url:"https://cloudflare.com",img:G('cloudflare.com')},
+{name:"AWS",cat:"platforms",desc:"خدمات أمازون السحابية الأكبر عالمياً",url:"https://aws.amazon.com",img:G('aws.amazon.com')},
+{name:"Google Cloud",cat:"platforms",desc:"منصة Google السحابية للحوسبة والذكاء",url:"https://cloud.google.com",img:G('cloud.google.com')},
+{name:"Microsoft Azure",cat:"platforms",desc:"خدمات سحابية شاملة من مايكروسوفت",url:"https://azure.microsoft.com",img:G('azure.microsoft.com')},
+{name:"Docker Hub",cat:"platforms",desc:"أكبر مستودع لحاويات Docker",url:"https://hub.docker.com",img:G('docker.com')},
+{name:"Kubernetes",cat:"platforms",desc:"إدارة وتنسيق الحاويات السحابية",url:"https://kubernetes.io",img:G('kubernetes.io')},
+{name:"Terraform",cat:"platforms",desc:"إدارة البنية التحتية ككود IaC",url:"https://terraform.io",img:G('terraform.io')},
+{name:"Postman",cat:"platforms",desc:"منصة تطوير واختبار واجهات API",url:"https://postman.com",img:G('postman.com')},
+{name:"Swagger",cat:"platforms",desc:"توثيق وتصميم واجهات REST API",url:"https://swagger.io",img:G('swagger.io')},
+{name:"Notion",cat:"platforms",desc:"منصة إنتاجية متكاملة للفرق والأفراد",url:"https://notion.so",img:G('notion.so')},
+{name:"Airtable",cat:"platforms",desc:"قاعدة بيانات مرنة بواجهة جداول ذكية",url:"https://airtable.com",img:G('airtable.com')},
+{name:"Trello",cat:"platforms",desc:"إدارة المشاريع بالبطاقات والقوائم",url:"https://trello.com",img:G('trello.com')},
+{name:"Asana",cat:"platforms",desc:"منصة إدارة العمل الجماعي والمشاريع",url:"https://asana.com",img:G('asana.com')},
+{name:"Monday.com",cat:"platforms",desc:"نظام إدارة عمل مرن وقابل للتخصيص",url:"https://monday.com",img:G('monday.com')},
+{name:"ClickUp",cat:"platforms",desc:"منصة إنتاجية شاملة لإدارة كل شيء",url:"https://clickup.com",img:G('clickup.com')},
+{name:"Linear",cat:"platforms",desc:"أداة تتبع المشاريع البرمجية الحديثة",url:"https://linear.app",img:G('linear.app')},
+{name:"Jira",cat:"platforms",desc:"إدارة المشاريع التقنية من Atlassian",url:"https://atlassian.com/software/jira",img:G('atlassian.com')},
+{name:"Slack",cat:"platforms",desc:"منصة تواصل الفرق الأشهر عالمياً",url:"https://slack.com",img:G('slack.com')},
+{name:"Discord",cat:"platforms",desc:"منصة تواصل مجتمعي للمطورين واللاعبين",url:"https://discord.com",img:G('discord.com')},
+{name:"Zoom",cat:"platforms",desc:"منصة اجتماعات الفيديو الأشهر",url:"https://zoom.us",img:G('zoom.us')},
+{name:"Miro",cat:"platforms",desc:"سبورة تعاونية رقمية للعصف الذهني",url:"https://miro.com",img:G('miro.com')},
+{name:"Canva",cat:"platforms",desc:"منصة تصميم رسومي شاملة لغير المصممين",url:"https://canva.com",img:G('canva.com')},
+{name:"Loom",cat:"platforms",desc:"تسجيل فيديوهات شرح ومشاركتها فوراً",url:"https://loom.com",img:G('loom.com')},
+{name:"Calendly",cat:"platforms",desc:"جدولة المواعيد والاجتماعات تلقائياً",url:"https://calendly.com",img:G('calendly.com')},
+{name:"Typeform",cat:"platforms",desc:"إنشاء استبيانات ونماذج تفاعلية جميلة",url:"https://typeform.com",img:G('typeform.com')},
+{name:"Tally Forms",cat:"platforms",desc:"منشئ نماذج مجاني وبسيط ومتقدم",url:"https://tally.so",img:G('tally.so')},
+{name:"Stripe",cat:"platforms",desc:"منصة معالجة المدفوعات الإلكترونية",url:"https://stripe.com",img:G('stripe.com')},
+{name:"Gumroad",cat:"platforms",desc:"بيع المنتجات الرقمية مباشرة للجمهور",url:"https://gumroad.com",img:G('gumroad.com')},
+{name:"Lemonsqueezy",cat:"platforms",desc:"بيع منتجات رقمية واشتراكات بسهولة",url:"https://lemonsqueezy.com",img:G('lemonsqueezy.com')},
+{name:"Shopify",cat:"platforms",desc:"أكبر منصة لإنشاء متاجر إلكترونية",url:"https://shopify.com",img:G('shopify.com')},
+{name:"WooCommerce",cat:"platforms",desc:"إضافة التجارة الإلكترونية لووردبريس",url:"https://woocommerce.com",img:G('woocommerce.com')},
+{name:"WordPress",cat:"platforms",desc:"نظام إدارة محتوى الأكثر استخداماً عالمياً",url:"https://wordpress.org",img:G('wordpress.org')},
+{name:"Ghost",cat:"platforms",desc:"منصة نشر ومدونات احترافية حديثة",url:"https://ghost.org",img:G('ghost.org')},
+{name:"Medium",cat:"platforms",desc:"منصة كتابة ونشر المقالات الشهيرة",url:"https://medium.com",img:G('medium.com')},
+{name:"Substack",cat:"platforms",desc:"منصة نشرات بريدية ومحتوى مدفوع",url:"https://substack.com",img:G('substack.com')},
+{name:"Product Hunt",cat:"platforms",desc:"منصة اكتشاف المنتجات التقنية الجديدة",url:"https://producthunt.com",img:G('producthunt.com')},
+{name:"Indie Hackers",cat:"platforms",desc:"مجتمع رواد الأعمال المستقلين",url:"https://indiehackers.com",img:G('indiehackers.com')},
+{name:"Dev.to",cat:"platforms",desc:"مجتمع مطورين للمقالات والنقاشات التقنية",url:"https://dev.to",img:G('dev.to')},
+{name:"Hashnode",cat:"platforms",desc:"منصة تدوين للمطورين بدومين مخصص",url:"https://hashnode.com",img:G('hashnode.com')},
+{name:"CodePen",cat:"platforms",desc:"بيئة تطوير ويب تفاعلية في المتصفح",url:"https://codepen.io",img:G('codepen.io')},
+{name:"CodeSandbox",cat:"platforms",desc:"بيئة تطوير سحابية فورية للويب",url:"https://codesandbox.io",img:G('codesandbox.io')},
+{name:"StackBlitz",cat:"platforms",desc:"بيئة تطوير ويب كاملة في المتصفح",url:"https://stackblitz.com",img:G('stackblitz.com')},
+{name:"Replit",cat:"platforms",desc:"منصة برمجة سحابية تفاعلية متكاملة",url:"https://replit.com",img:G('replit.com')},
+{name:"Glitch",cat:"platforms",desc:"منصة بناء تطبيقات ويب مجانية وممتعة",url:"https://glitch.com",img:G('glitch.com')},
+{name:"Fly.io",cat:"platforms",desc:"نشر التطبيقات قرب المستخدمين حول العالم",url:"https://fly.io",img:G('fly.io')},
+{name:"Deno Deploy",cat:"platforms",desc:"نشر تطبيقات JavaScript على الحافة",url:"https://deno.com/deploy",img:G('deno.com')},
+{name:"NPM",cat:"platforms",desc:"مدير حزم JavaScript الأكبر في العالم",url:"https://npmjs.com",img:G('npmjs.com')},
+{name:"PyPI",cat:"platforms",desc:"مستودع حزم Python الرسمي",url:"https://pypi.org",img:G('pypi.org')},
+{name:"Anaconda",cat:"platforms",desc:"منصة علم البيانات وPython الشاملة",url:"https://anaconda.com",img:G('anaconda.com')},
+{name:"Google Colab",cat:"platforms",desc:"بيئة Jupyter مجانية بوحدات GPU سحابية",url:"https://colab.research.google.com",img:G('google.com')},
+{name:"Jupyter",cat:"platforms",desc:"بيئة دفاتر تفاعلية للبرمجة والبيانات",url:"https://jupyter.org",img:G('jupyter.org')},
+{name:"Weights & Biases",cat:"platforms",desc:"تتبع تجارب نماذج ML والتعاون عليها",url:"https://wandb.ai",img:G('wandb.ai')},
+{name:"MLflow",cat:"platforms",desc:"منصة مفتوحة لإدارة دورة حياة ML",url:"https://mlflow.org",img:G('mlflow.org')},
+{name:"Gradio",cat:"platforms",desc:"بناء واجهات تجريبية لنماذج ML بسهولة",url:"https://gradio.app",img:G('gradio.app')},
+{name:"Streamlit",cat:"platforms",desc:"بناء تطبيقات بيانات تفاعلية بـ Python",url:"https://streamlit.io",img:G('streamlit.io')},
+{name:"Zapier",cat:"platforms",desc:"أتمتة سير العمل بين التطبيقات بدون كود",url:"https://zapier.com",img:G('zapier.com')},
+{name:"Make (Integromat)",cat:"platforms",desc:"أتمتة متقدمة لسير العمل والعمليات",url:"https://make.com",img:G('make.com')},
+{name:"IFTTT",cat:"platforms",desc:"ربط التطبيقات وأتمتة المهام ببساطة",url:"https://ifttt.com",img:G('ifttt.com')},
+{name:"Twilio",cat:"platforms",desc:"منصة تواصل برمجية للرسائل والمكالمات",url:"https://twilio.com",img:G('twilio.com')},
+{name:"SendGrid",cat:"platforms",desc:"خدمة إرسال بريد إلكتروني للمطورين",url:"https://sendgrid.com",img:G('sendgrid.com')},
+{name:"Mailgun",cat:"platforms",desc:"خدمة بريد إلكتروني API للتطبيقات",url:"https://mailgun.com",img:G('mailgun.com')},
+{name:"Algolia",cat:"platforms",desc:"محرك بحث فوري قوي للتطبيقات والمواقع",url:"https://algolia.com",img:G('algolia.com')},
+{name:"Elastic",cat:"platforms",desc:"محرك بحث وتحليل بيانات متقدم",url:"https://elastic.co",img:G('elastic.co')},
+{name:"Auth0",cat:"platforms",desc:"منصة مصادقة وتسجيل دخول متقدمة",url:"https://auth0.com",img:G('auth0.com')},
+{name:"Clerk",cat:"platforms",desc:"مصادقة مستخدمين حديثة وسهلة التكامل",url:"https://clerk.com",img:G('clerk.com')},
+{name:"Sentry",cat:"platforms",desc:"مراقبة الأخطاء والأداء في التطبيقات",url:"https://sentry.io",img:G('sentry.io')},
+{name:"Datadog",cat:"platforms",desc:"مراقبة البنية التحتية والتطبيقات السحابية",url:"https://datadoghq.com",img:G('datadoghq.com')},
+{name:"Grafana",cat:"platforms",desc:"لوحات تحكم ومراقبة بيانات مفتوحة المصدر",url:"https://grafana.com",img:G('grafana.com')},
+{name:"Upstash",cat:"platforms",desc:"قاعدة بيانات Redis وKafka سحابية بدون خادم",url:"https://upstash.com",img:G('upstash.com')}
 ];
 
 // ════════════════════════════════════════════════════
@@ -1102,17 +1086,25 @@ const PROMPTS = [
 // ════════════════════════════════════════════════════
 const COURSES = [
 {provider:"Google",providerImg:WP("commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png"),title:"Google AI Essentials",desc:"تعلم أساسيات الذكاء الاصطناعي وكيفية استخدامه في العمل اليومي من مهندسي Google.",level:"مبتدئ",duration:"5 ساعات",url:"https://grow.google/ai-essentials"},
-{provider:"IBM",providerImg:WP("commons/5/51/IBM_logo.svg"),title:"Introduction to AI — IBM",desc:"مقدمة شاملة في الذكاء الاصطناعي من IBM تغطي المفاهيم والتطبيقات العملية.",level:"مبتدئ",duration:"3 ساعات",url:"https://www.coursera.org/learn/introduction-to-ai"},
 {provider:"Harvard",providerImg:WP("en/2/29/Harvard_shield_wreath.PNG"),title:"CS50's Introduction to AI with Python",desc:"دورة هارفارد الشهيرة لبناء نماذج ذكاء اصطناعي بلغة Python.",level:"متوسط",duration:"7 أسابيع",url:"https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python"},
 {provider:"Microsoft",providerImg:WP("commons/4/44/Microsoft_logo.svg"),title:"AI for Beginners — Microsoft",desc:"منهج مايكروسوفت الكامل للمبتدئين في الذكاء الاصطناعي مفتوح المصدر على GitHub.",level:"مبتدئ",duration:"24 درساً",url:"https://microsoft.github.io/AI-For-Beginners"},
-{provider:"DeepLearning.AI",providerImg:"https://www.deeplearning.ai/static/favicon/favicon.ico",title:"ChatGPT Prompt Engineering",desc:"تعلم هندسة البرومبتات من Andrew Ng وOpenAI لبناء تطبيقات LLM احترافية.",level:"متوسط",duration:"9 دروس",url:"https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers"},
-{provider:"Meta AI",providerImg:WP("commons/7/7b/Meta_Platforms_Inc._logo.svg"),title:"Introduction to Generative AI",desc:"فهم الذكاء الاصطناعي التوليدي وأدوات Meta وكيفية تطبيقها في مشاريعك.",level:"مبتدئ",duration:"4 ساعات",url:"https://ai.meta.com/learn"},
+{provider:"DeepLearning.AI",providerImg:"https://www.deeplearning.ai/static/favicon/favicon.ico",title:"ChatGPT Prompt Engineering for Developers",desc:"تعلم هندسة البرومبتات من Andrew Ng وOpenAI لبناء تطبيقات LLM احترافية.",level:"متوسط",duration:"9 دروس",url:"https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers"},
 {provider:"Stanford",providerImg:"https://www.stanford.edu/favicon.ico",title:"Machine Learning Specialization",desc:"المنهج الأصلي لـ Andrew Ng من ستانفورد في تعلم الآلة — الأشهر في العالم.",level:"متوسط",duration:"3 أشهر",url:"https://www.coursera.org/specializations/machine-learning-introduction"},
-{provider:"Anthropic",providerImg:"https://www.anthropic.com/favicon.ico",title:"Prompt Engineering Tutorial",desc:"الدليل الرسمي من Anthropic لإتقان كتابة البرومبتات لنموذج Claude.",level:"متوسط",duration:"تفاعلي",url:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"},
-{provider:"OpenAI",providerImg:WP("commons/0/04/ChatGPT_logo.svg"),title:"OpenAI API Tutorials",desc:"تعلم استخدام OpenAI API لبناء تطبيقات GPT-4 وDALL-E احترافية.",level:"متقدم",duration:"ذاتي",url:"https://platform.openai.com/docs/tutorials"},
+{provider:"Anthropic",providerImg:"https://www.anthropic.com/favicon.ico",title:"Prompt Engineering with Claude",desc:"الدليل الرسمي من Anthropic لإتقان كتابة البرومبتات لنموذج Claude.",level:"متوسط",duration:"تفاعلي",url:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"},
 {provider:"Fast.AI",providerImg:"https://www.fast.ai/favicon.ico",title:"Practical Deep Learning for Coders",desc:"أفضل دورة عملية في Deep Learning للمبرمجين بدون خلفية رياضية معقدة.",level:"متوسط",duration:"18 ساعة",url:"https://course.fast.ai"},
 {provider:"Hugging Face",providerImg:"https://huggingface.co/favicon.ico",title:"Hugging Face NLP Course",desc:"دورة شاملة في معالجة اللغة الطبيعية باستخدام مكتبة Transformers الشهيرة.",level:"متقدم",duration:"8 وحدات",url:"https://huggingface.co/learn/nlp-course"},
-{provider:"Google Cloud",providerImg:G("cloud.google.com"),title:"Generative AI Learning Path",desc:"مسار تعلم متكامل من Google Cloud يغطي Generative AI وLLMs وResponsible AI.",level:"مبتدئ",duration:"مسار كامل",url:"https://cloud.google.com/learn/training/machinelearning-ai"}
+{provider:"Google Cloud",providerImg:G("cloud.google.com"),title:"Generative AI Learning Path",desc:"مسار تعلم متكامل من Google Cloud يغطي Generative AI وLLMs وResponsible AI.",level:"مبتدئ",duration:"مسار كامل",url:"https://cloud.google.com/learn/training/machinelearning-ai"},
+{provider:"freeCodeCamp",providerImg:G("freecodecamp.org"),title:"Machine Learning with Python",desc:"دورة شاملة ومجانية في تعلم الآلة باستخدام Python من freeCodeCamp وتمنحك شهادة.",level:"متوسط",duration:"10 ساعات",url:"https://www.freecodecamp.org/learn/machine-learning-with-python"},
+{provider:"Kaggle",providerImg:G("kaggle.com"),title:"Intro to Machine Learning",desc:"دورة عملية تفاعلية من Kaggle لتعلم أساسيات الآلة وبناء النماذج مباشرة.",level:"مبتدئ",duration:"3 ساعات",url:"https://www.kaggle.com/learn/intro-to-machine-learning"},
+{provider:"DeepLearning.AI",providerImg:"https://www.deeplearning.ai/static/favicon/favicon.ico",title:"LangChain for LLM Application Development",desc:"تعلم بناء تطبيقات ذكاء اصطناعي باستخدام LangChain مع Andrew Ng.",level:"متقدم",duration:"6 دروس",url:"https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development"},
+{provider:"Google",providerImg:WP("commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png"),title:"Introduction to Generative AI",desc:"مقدمة من Google Cloud في الذكاء التوليدي ونماذج اللغة الكبيرة.",level:"مبتدئ",duration:"45 دقيقة",url:"https://www.cloudskillsboost.google/course_templates/536"},
+{provider:"IBM",providerImg:WP("commons/5/51/IBM_logo.svg"),title:"AI Foundations for Everyone",desc:"أساسيات الذكاء الاصطناعي للجميع من IBM على Coursera مع شهادة مجانية.",level:"مبتدئ",duration:"8 ساعات",url:"https://www.coursera.org/specializations/ai-foundations-for-everyone"},
+{provider:"MIT OpenCourseWare",providerImg:G("ocw.mit.edu"),title:"Introduction to Deep Learning — MIT 6.S191",desc:"دورة MIT الشهيرة في التعلم العميق مع مشاريع عملية وفيديوهات محدثة سنوياً.",level:"متقدم",duration:"10 محاضرات",url:"http://introtodeeplearning.com"},
+{provider:"NVIDIA",providerImg:G("nvidia.com"),title:"Getting Started with Deep Learning",desc:"تعلم التعلم العميق وتطبيقاته باستخدام أدوات NVIDIA المتقدمة مجاناً.",level:"متوسط",duration:"8 ساعات",url:"https://www.nvidia.com/en-us/training/online"},
+{provider:"Elements of AI",providerImg:G("elementsofai.com"),title:"Elements of AI",desc:"دورة مجانية من جامعة هلسنكي لفهم الذكاء الاصطناعي للجميع بدون برمجة.",level:"مبتدئ",duration:"6 أسابيع",url:"https://www.elementsofai.com"},
+{provider:"DataCamp",providerImg:G("datacamp.com"),title:"Understanding Machine Learning",desc:"دورة تفاعلية من DataCamp لفهم مبادئ تعلم الآلة والتطبيقات العملية.",level:"مبتدئ",duration:"4 ساعات",url:"https://www.datacamp.com/courses/understanding-machine-learning"},
+{provider:"Coursera",providerImg:G("coursera.org"),title:"Deep Learning Specialization",desc:"التخصص الكامل في التعلم العميق من Andrew Ng مع 5 دورات شاملة.",level:"متقدم",duration:"5 أشهر",url:"https://www.coursera.org/specializations/deep-learning"},
+{provider:"OpenAI",providerImg:WP("commons/0/04/ChatGPT_logo.svg"),title:"OpenAI Cookbook & Tutorials",desc:"أمثلة عملية ودروس تطبيقية من OpenAI لاستخدام GPT-4 وDALL-E API.",level:"متقدم",duration:"ذاتي",url:"https://cookbook.openai.com"}
 ];
 
 // ════════════════════════════════════════════════════
@@ -1372,6 +1364,15 @@ renderCourses();
 renderNews();
 
 document.getElementById('dynamicToolCount') && (document.getElementById('dynamicToolCount').textContent = DB.length + "+");
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const countEl = document.getElementById('dynamicToolCount');
+    if(countEl && typeof DB !== 'undefined') {
+        countEl.innerText = DB.length;
+    }
+});
 </script>
 </body>
 </html>
